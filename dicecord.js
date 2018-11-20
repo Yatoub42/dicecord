@@ -17,21 +17,6 @@ function gen(min,max) {
 	return result
 }
 
-
-const responseObject = {
-	"!ping": "Pong!",
-  	//"!1d100": '1D100='+gen(0,100),
-  	"!1d10": '1D10='+gen(0,10),
-  	"!1d4": '1D4='+gen(1,4),
-	"!1d6": '1D6='+gen(1,6),
-	"!1d12": '1D12='+gen(1,12),
-	"!1d20": '1D20='+gen(1,20),
-	"!1d8": '1D8='+gen(1,8),
-	"!1d3": '1D3='+gen(1,3),
-	"!1d2": '1D2='+gen(1,2),
-	"!help": "Dicecord usage : !1d100 ; !1d10 ; !1d4 ; !1d6 ; !1d12 ; !1d20 ; !1d8 ; !1d3 ; !1d2"
-};
-
 client.on('ready', () => {
     	console.log(`Logged in as ${client.user.tag}!`);
 	client.user.setAvatar('./Include/avatar.png');
@@ -98,14 +83,14 @@ client.on('message', msg => {
             msg.reply(dice+'='+resultat);
             count++;
             break;
-		case '!debug':
+		/*case '!debug':
             var dice='DEBUG'
             var i;
             for (i = 0; i < 10; i++) {
                 var resultat = gen(1, 100)
                 msg.reply(dice + '=' + resultat);
             }
-            break;
+            break;*/
 		case '!help':
 			msg.reply("Dicecord usage : !1d100 ; !1d10 ; !1d4 ; !1d6 ; !1d12 ; !1d20 ; !1d8 ; !1d3 ; !1d2");
 			break;
