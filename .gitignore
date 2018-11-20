@@ -160,8 +160,8 @@ fabric.properties
 .idea/sonarlint
 
 # Private file
-.private
-.priv
+*.private
+*.priv
 
 # End of https://www.gitignore.io/api/node,webstorm
 
