@@ -22,7 +22,7 @@ client.on('ready', () => {
   var name = client.user.tag();
 	client.user.setAvatar('./Include/avatar.png');
   console.log(`Logged in as ${client.user.tag}!`);
-  console.log('Logged in '+server+' as '+name+' !');
+  //console.log('Logged in '+server+' as '+name+' !');
 });
 
 client.on('message', msg => {
