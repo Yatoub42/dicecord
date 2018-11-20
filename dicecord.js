@@ -18,8 +18,11 @@ function gen(min,max) {
 }
 
 client.on('ready', () => {
-    	console.log(`Logged in ${client.guild.name} as ${client.user.tag}!`);
+  var server = client.guild.name();
+  var name = client.user.tag();
 	client.user.setAvatar('./Include/avatar.png');
+  console.log(`Logged in as ${client.user.tag}!`);
+  console.log('Logged in '+server+' as '+name+' !');
 });
 
 client.on('message', msg => {
