@@ -1,5 +1,5 @@
 const Discord = require('discord.js'); //npm install discord.js --save
-const Auth = require('./Include/auth.json.private');
+const Auth = require('./Include/auth.priv.json');
 //var chance = require('chance').Chance(); //npm install chance --save
 //var chance = require('chance').Chance(Date.now()); //npm install chance --save
 // Load Chance

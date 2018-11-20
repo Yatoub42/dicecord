@@ -83,5 +83,6 @@ typings/
 # Private files
 *.priv
 *.private
+*.priv.json
 
 # End of https://www.gitignore.io/api/node
