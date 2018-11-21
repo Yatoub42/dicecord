@@ -1,12 +1,9 @@
+// Libraries
 const Discord = require('discord.js'); //npm install discord.js --save
 const Auth = require('./Include/auth.priv.json');
-//var chance = require('chance').Chance(); //npm install chance --save
-//var chance = require('chance').Chance(Date.now()); //npm install chance --save
-// Load Chance
 var Chance = require('chance');//npm install chance --save
-// Instantiate Chance so it can be used
+// Instanciations
 var chance = new Chance();
-//var my_random_string = chance.string();
 const client = new Discord.Client();
 
 function gen(min,max) {
@@ -18,80 +15,99 @@ function gen(min,max) {
 }
 
 client.on('ready', () => {
-  //var server = client.guild.name();
-  //var name = client.user.tag();
 	client.user.setAvatar('./Include/avatar.png');
   console.log(`Logged in as ${client.user.tag}!`);
-  //console.log('Logged in '+server+' as '+name+' !');
 });
 
 client.on('message', msg => {
-	/*if(responseObject[msg.content]){
-		var date = Date.now();
-        //console.log('Seed Rng='+date);
-		msg.reply(responseObject[msg.content]);
-	}*/
     switch (msg.content) {
         case '!1d100':
             var dice='1d100';
+            console.log(dice+' asked');
             var resultat = gen(1,100)
             msg.reply(dice+'='+resultat);
+            console.log(resultat+' provided');
             count++;
+            console.log(count+'lancés faits');
             break;
         case '!1d10':
-            var dice='1d100';
+            var dice='1d10';
+            console.log(dice+' asked');
             var resultat = gen(1,10)
             msg.reply(dice+'='+resultat);
+            console.log(resultat+' provided');
             count++;
+            console.log(count+'lancés faits');
             break;
         case '!1d12':
             var dice='1d12';
+            console.log(dice+' asked');
             var resultat = gen(1,12)
             msg.reply(dice+'='+resultat);
+            console.log(resultat+' provided');
             count++;
+            console.log(count+'lancés faits');
             break;
         case '!1d2':
             var dice='1d2';
+            console.log(dice+' asked');
             var resultat = gen(1,2)
             msg.reply(dice+'='+resultat);
+            console.log(resultat+' provided');
             count++;
+            console.log(count+'lancés faits');
             break;
         case '!1d3':
             var dice='1d3';
+            console.log(dice+' asked');
             var resultat = gen(1,3)
             msg.reply(dice+'='+resultat);
+            console.log(resultat+' provided');
             count++;
+            console.log(count+'lancés faits');
             break;
         case '!1d4':
             var dice='1d4';
+            console.log(dice+' asked');
             var resultat = gen(1,4)
             msg.reply(dice+'='+resultat);
+            console.log(resultat+' provided');
             count++;
+            console.log(count+'lancés faits');
             break;
         case '!1d6':
             var dice='1d6';
+            console.log(dice+' asked');
             var resultat = gen(1,6)
             msg.reply(dice+'='+resultat);
+            console.log(resultat+' provided');
             count++;
+            console.log(count+'lancés faits');
             break;
         case '!1d8':
             var dice='1d8';
+            console.log(dice+' asked');
             var resultat = gen(1,8)
             msg.reply(dice+'='+resultat);
+            console.log(resultat+' provided');
             count++;
+            console.log(count+'lancés faits');
             break;
         case '!1d20':
             var dice='1d20';
+            console.log(dice+' asked');
             var resultat = gen(1,20)
             msg.reply(dice+'='+resultat);
+            console.log(resultat+' provided');
             count++;
+            console.log(count+'lancés faits');
             break;
 		/*case '!debug':
             var dice='DEBUG'
             var i;
             for (i = 0; i < 10; i++) {
                 var resultat = gen(1, 100)
-                msg.reply(dice + '=' + resultat);
+                msg.reply(dice+'='+resultat);
             }
             break;*/
 		case '!help':
@@ -101,10 +117,9 @@ client.on('message', msg => {
 			msg.reply('Pong!');
 			break;
 		case '!stat':
-			msg.reply('Il y a eu '+count+' lancés depuis le démarrage du bot');
+			msg.reply('Il y a eu '+count+' lancés depuis mon démarrage');
     }
 });
 
 client.login(Auth.token);
 var count= 0
-//console.log('Seed='+Date.now());
