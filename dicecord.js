@@ -122,4 +122,5 @@ client.on('message', msg => {
 });
 
 client.login(Auth.token);
+client.on('error', console.error);
 var count= 0
