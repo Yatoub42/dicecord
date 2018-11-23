@@ -34,55 +34,55 @@ client.on('message', msg => {
     switch (msg.content) {
         case '!1d100':
             var dice='1d100';
-            var resultat = gen(1,100)
+            var resultat = gen(1,100);
             msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d10':
             var dice='1d100';
-            var resultat = gen(1,10)
+            var resultat = gen(1,10);
             msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d12':
             var dice='1d12';
-            var resultat = gen(1,12)
+            var resultat = gen(1,12);
             msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d2':
             var dice='1d2';
-            var resultat = gen(1,2)
+            var resultat = gen(1,2);
             msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d3':
             var dice='1d3';
-            var resultat = gen(1,3)
+            var resultat = gen(1,3);
             msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d4':
             var dice='1d4';
-            var resultat = gen(1,4)
+            var resultat = gen(1,4);
             msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d6':
             var dice='1d6';
-            var resultat = gen(1,6)
+            var resultat = gen(1,6);
             msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d8':
             var dice='1d8';
-            var resultat = gen(1,8)
+            var resultat = gen(1,8);
             msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d20':
             var dice='1d20';
-            var resultat = gen(1,20)
+            var resultat = gen(1,20);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -90,8 +90,8 @@ client.on('message', msg => {
             var dice='DEBUG'
             var i;
             for (i = 0; i < 10; i++) {
-                var resultat = gen(1, 100)
-                msg.reply(dice + '=' + resultat);
+                var resultat = gen(1, 100);
+                msg.reply(dice+'='+resultat);
             }
             break;*/
 		case '!help':
