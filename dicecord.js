@@ -24,7 +24,7 @@ client.on('message', msg => {
         case '!1d100':
             var dice='1d100';
             console.log(dice+' asked');
-            var resultat = gen(1,100)
+            var resultat = gen(0,100)
             msg.reply(dice+'='+resultat);
             console.log(resultat+' provided');
             count++;
@@ -33,7 +33,7 @@ client.on('message', msg => {
         case '!1d10':
             var dice='1d10';
             console.log(dice+' asked');
-            var resultat = gen(1,10)
+            var resultat = gen(0,10)
             msg.reply(dice+'='+resultat);
             console.log(resultat+' provided');
             count++;
