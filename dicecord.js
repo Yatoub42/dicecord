@@ -37,8 +37,11 @@ function gen(min,max) {
 
 // Validation de la connexion
 client.on('ready', () => {
-	client.user.setAvatar('./Include/avatar.png');
-  console.log(`Logged in as ${client.user.tag}!`);
+	//client.user.setAvatar('./Include/avatar.png');
+  client.user.setAvatar('./Include/avatar.png')
+  .then(user => console.log(`Nouvel avatar setté !`))
+  .catch(console.error);
+  console.log('Je suis prêt !')
 });
 
 // Commandes et réponses
