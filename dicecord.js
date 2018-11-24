@@ -14,6 +14,7 @@ const client = new Discord.Client();
 function reussiteCritique(){
   var phrase = Critpos.split('\n');
   var aleat = gen(0,(phrase.length - 2));
+  //console.log('nb possibilité : '+(phrase.length - 2));
   return phrase[aleat]
 }
 
@@ -21,6 +22,7 @@ function reussiteCritique(){
 function echecCritique(){
   var phrase = Critneg.split('\n');
   var aleat = gen(0,(phrase.length - 2));
+  //console.log('nb possibilité : '+(phrase.length - 2));
   return phrase[aleat]
 }
 
@@ -103,16 +105,19 @@ client.on('message', msg => {
             msg.reply(dice+'='+resultat);
             count++;
             break;
-        case '!reload':
-            //TODO : reload des fichier de phrases
-            console.log('Reload des phrases');
-            break;
 		/*case '!debug':
             var dice='DEBUG'
             var i;
             for (i = 0; i < 10; i++) {
-                var resultat = gen(1, 100)
-                msg.reply(dice+'='+resultat);
+                var resultat = gen(1, 100);
+                resultat = 100;
+                if (resultat >= 95) {
+                  msg.reply(dice+'='+resultat+'\n'+echecCritique())
+                } else if (resultat && (resultat <= 5 || resultat == 42)) {
+                  msg.reply(dice+'='+resultat+'\n'+reussiteCritique());
+                } else {
+                  msg.reply(dice+'='+resultat);
+                }
             }
             break;*/
 		case '!help':
