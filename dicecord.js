@@ -1,46 +1,27 @@
 // Libraries
 const Discord = require('discord.js'); //npm install discord.js --save
-var Chance = require('chance');//npm install chance --save
-var Fs = require('fs');
-// Fichiers JSON
+const Chance = require('chance');//npm install chance --save
+const Fs = require('fs');
+// Fichiers
 const Auth = require('./Include/auth.priv.json');
-var Critpos = Fs.readFileSync("./Include/critpos.json");
-var Critneg= Fs.readFileSync("./Include/critneg.json");
-// Parser les fichiers JSON
-var contentCritpos = JSON.parse(Critpos);
-var contentCritneg = JSON.parse(Critneg);
+var Critpos = Fs.readFileSync("./Include/critpos.txt", "UTF-8");
+var Critneg= Fs.readFileSync("./Include/critneg.txt", "UTF-8");
 // Instanciations
 var chance = new Chance();
 const client = new Discord.Client();
 
 // Fonction de génération de réponse personnalisé en cas de réussite critique
 function reussiteCritique(){
-  var aleat = gen(1,2);
-  console.log('aleat reussite critique='+aleat)
-  switch (aleat) {
-    case 1:
-      message = contentCritpos.key1;
-      break;
-    case 2:
-      message = contentCritpos.key2;
-      break;
-  }
-  return message
+  var phrase = Critpos.split('\n');
+  var aleat = gen(0,(phrase.length - 2));
+  return phrase[aleat]
 }
 
 // Fonction de génération de réponse personnalisé en cas d'échec critique
 function echecCritique(){
-  var aleat = gen(1,2);
-  console.log('aleat echec critique='+aleat)
-  switch (aleat) {
-    case 1:
-      message = contentCritneg.key1;
-      break;
-    case 2:
-      message = contentCritneg.key2;
-      break;
-  }
-  return message
+  var phrase = Critneg.split('\n');
+  var aleat = gen(0,(phrase.length - 2));
+  return phrase[aleat]
 }
 
 // Fonction de génération de jet aléatoire
@@ -64,6 +45,7 @@ client.on('message', msg => {
         case '!1d100':
             var dice='1d100';
             var resultat = gen(0,100)
+            //resultat = 100
             if (resultat >= 95) {
               msg.reply(dice+'='+resultat+'\n'+echecCritique())
             } else if (resultat && (resultat <= 5 || resultat == 42)) {
@@ -120,6 +102,10 @@ client.on('message', msg => {
             var resultat = gen(1,20)
             msg.reply(dice+'='+resultat);
             count++;
+            break;
+        case '!reload':
+            //TODO : reload des fichier de phrases
+            console.log('Reload des phrases');
             break;
 		/*case '!debug':
             var dice='DEBUG'
