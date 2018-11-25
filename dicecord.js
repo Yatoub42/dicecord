@@ -4,8 +4,9 @@ const Chance = require('chance');//npm install chance --save
 const Fs = require('fs');
 // Fichiers
 const Auth = require('./Include/auth.priv.json');
-var Critpos = Fs.readFileSync("./Include/critpos.txt", "UTF-8");
-var Critneg= Fs.readFileSync("./Include/critneg.txt", "UTF-8");
+const Critpos = Fs.readFileSync("./Include/critpos.txt", "UTF-8");
+const Critneg= Fs.readFileSync("./Include/critneg.txt", "UTF-8");
+const Critmixte= Fs.readFileSync("./Include/critmixte.txt", "UTF-8");
 // Instanciations
 var chance = new Chance();
 const client = new Discord.Client();
@@ -63,6 +64,14 @@ function echecCritique(){
   return phrase[aleat]
 }
 
+// Fonction de génération de réponse personnalisé en cas de réussite critique
+function mixteCritique(){
+  var phrase = Critmixte.split('\n');
+  var aleat = gen(0,(phrase.length - 2));
+  //console.log('nb possibilité : '+(phrase.length - 2));
+  return phrase[aleat]
+}
+
 // Fonction de génération de jet aléatoire
 function gen(min,max) {
     var instance = new Chance();
@@ -93,12 +102,15 @@ client.on('message', msg => {
             if (resultat >= 95) {
               logger.debug('echec critique');
               msg.reply(dice+'='+resultat+'\n'+echecCritique())
-            } else if (resultat && (resultat <= 5 || resultat == 42)) {
+            } else if (resultat <= 5) {
               logger.debug('réussite critique');
               msg.reply(dice+'='+resultat+'\n'+reussiteCritique());
+            } else if (resultat && (resultat === 42 || resultat === 69)) {
+              logger.debug('réussite mixte');
+              msg.reply(dice+'='+resultat+'\n'+mixteCritique());
             } else {
               msg.reply(dice+'='+resultat);
-            }
+            };
             count++;
             break;
         case '!1d10':
