@@ -2,6 +2,10 @@
 const Discord = require('discord.js'); //npm install discord.js --save
 const Chance = require('chance');//npm install chance --save
 const Fs = require('fs');
+const { createLogger, format, transports } = require('winston');
+require('winston-daily-rotate-file');
+const path = require('path');
+const logDir = 'log';
 // Fichiers
 const Auth = require('./Include/auth.priv.json');
 const Critpos = Fs.readFileSync("./Include/critpos.txt", "UTF-8");
@@ -10,15 +14,10 @@ const Critmixte= Fs.readFileSync("./Include/critmixte.txt", "UTF-8");
 // Instanciations
 var chance = new Chance();
 const client = new Discord.Client();
-const { createLogger, format, transports } = require('winston');
-require('winston-daily-rotate-file');
-const fs = require('fs');
-const path = require('path');
-const logDir = 'log';
 //logger
-// Create the log directory if it does not exist
-if (!fs.existsSync(logDir)) {
-  fs.mkdirSync(logDir);
+// Création du répertoire si il n'existe pas
+if (!Fs.existsSync(logDir)) {
+  Fs.mkdirSync(logDir);
 }
 
 const dailyRotateFileTransport = new transports.DailyRotateFile({
@@ -27,7 +26,7 @@ const dailyRotateFileTransport = new transports.DailyRotateFile({
 });
 
 const logger = createLogger({
-  // change level if in dev environment versus production
+  // Setting du format de log
   format: format.combine(
     format.timestamp({
       format: 'YYYY-MM-DD HH:mm:ss'
@@ -36,7 +35,7 @@ const logger = createLogger({
   ),
   transports: [
     new transports.Console({
-      level: 'info',
+      //level: 'info',
       format: format.combine(
         format.colorize(),
         format.printf(
@@ -95,18 +94,18 @@ client.on('message', msg => {
     switch (msg.content) {
         case '!1d100':
             var dice='1d100';
-            logger.debug('1d100 demandé');
+            logger.info('1d100 demandé');
             var resultat = gen(0,100)
-            logger.debug(resultat+' généré');
+            logger.info(resultat+' généré');
             //resultat = 100
             if (resultat >= 95) {
-              logger.debug('echec critique');
+              logger.info('echec critique');
               msg.reply(dice+'='+resultat+'\n'+echecCritique())
             } else if (resultat <= 5) {
-              logger.debug('réussite critique');
+              logger.info('réussite critique');
               msg.reply(dice+'='+resultat+'\n'+reussiteCritique());
             } else if (resultat && (resultat === 42 || resultat === 69)) {
-              logger.debug('réussite mixte');
+              logger.info('critique mixte');
               msg.reply(dice+'='+resultat+'\n'+mixteCritique());
             } else {
               msg.reply(dice+'='+resultat);
