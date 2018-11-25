@@ -9,6 +9,43 @@ var Critneg= Fs.readFileSync("./Include/critneg.txt", "UTF-8");
 // Instanciations
 var chance = new Chance();
 const client = new Discord.Client();
+const { createLogger, format, transports } = require('winston');
+require('winston-daily-rotate-file');
+const fs = require('fs');
+const path = require('path');
+const logDir = 'log';
+//logger
+// Create the log directory if it does not exist
+if (!fs.existsSync(logDir)) {
+  fs.mkdirSync(logDir);
+}
+
+const dailyRotateFileTransport = new transports.DailyRotateFile({
+  filename: `${logDir}/dicecord_%DATE%.log`,
+  datePattern: 'YYYY-MM-DD'
+});
+
+const logger = createLogger({
+  // change level if in dev environment versus production
+  format: format.combine(
+    format.timestamp({
+      format: 'YYYY-MM-DD HH:mm:ss'
+    }),
+    format.printf(info => `${info.timestamp} ${info.level}: ${info.message}`)
+  ),
+  transports: [
+    new transports.Console({
+      level: 'info',
+      format: format.combine(
+        format.colorize(),
+        format.printf(
+          info => `${info.timestamp} ${info.level}: ${info.message}`
+        )
+      )
+    }),
+    dailyRotateFileTransport
+  ]
+});
 
 // Fonction de génération de réponse personnalisé en cas de réussite critique
 function reussiteCritique(){
@@ -39,9 +76,9 @@ function gen(min,max) {
 client.on('ready', () => {
 	//client.user.setAvatar('./Include/avatar.png');
   client.user.setAvatar('./Include/avatar.png')
-  .then(user => console.log(`Nouvel avatar setté !`))
-  .catch(console.error);
-  console.log('Je suis prêt !')
+  .then(user => logger.info(`Avatar setté !`))
+  .catch(logger.error);
+  logger.info('Bot Connected')
 });
 
 // Commandes et réponses
@@ -49,11 +86,15 @@ client.on('message', msg => {
     switch (msg.content) {
         case '!1d100':
             var dice='1d100';
+            logger.debug('1d100 demandé');
             var resultat = gen(0,100)
+            logger.debug(resultat+' généré');
             //resultat = 100
             if (resultat >= 95) {
+              logger.debug('echec critique');
               msg.reply(dice+'='+resultat+'\n'+echecCritique())
             } else if (resultat && (resultat <= 5 || resultat == 42)) {
+              logger.debug('réussite critique');
               msg.reply(dice+'='+resultat+'\n'+reussiteCritique());
             } else {
               msg.reply(dice+'='+resultat);
@@ -132,10 +173,10 @@ client.on('message', msg => {
 		case '!stat':
 			msg.reply('Il y a eu '+count+' lancés depuis mon démarrage');
     }
-    console.log(count+' lancés faits');
+    logger.debug(count+' lancés faits');
 });
 
 // connexion du bot aux salons
 client.login(Auth.token);
-client.on('error', console.error);
+client.on('error', logger.error);
 var count= 0
