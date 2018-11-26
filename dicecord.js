@@ -95,7 +95,7 @@ client.on('message', msg => {
         case '!1d100':
             var dice='1d100';
             logger.info('1d100 demandé');
-            var resultat = gen(0,100)
+            var resultat = gen(1,100)
             logger.info(resultat+' généré');
             //resultat = 100
             if (resultat >= 95) {
@@ -114,7 +114,7 @@ client.on('message', msg => {
             break;
         case '!1d10':
             var dice='1d10';
-            var resultat = gen(0,10)
+            var resultat = gen(1,10)
             msg.reply(dice+'='+resultat);
             count++;
             break;
