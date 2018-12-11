@@ -116,49 +116,65 @@ client.on('message', msg => {
             break;
         case '!1d10':
             var dice='1d10';
+            logger.info('1d10 demandé');
             var resultat = gen(1,10)
+            logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d12':
             var dice='1d12';
+            logger.info('1d12 demandé');
             var resultat = gen(1,12)
+            logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat)
             count++;
             break;
         case '!1d2':
             var dice='1d2';
+            logger.info('1d2 demandé');
             var resultat = gen(1,2)
+            logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d3':
             var dice='1d3';
+            logger.info('1d3 demandé');
             var resultat = gen(1,3)
+            logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d4':
             var dice='1d4';
+            logger.info('1d4 demandé');
             var resultat = gen(1,4)
+            logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d6':
             var dice='1d6';
+            logger.info('1d6 demandé');
             var resultat = gen(1,6)
+            logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d8':
             var dice='1d8';
+            logger.info('1d8 demandé');
             var resultat = gen(1,8)
+            logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d20':
             var dice='1d20';
+            logger.info('1d20 demandé');
             var resultat = gen(1,20)
+            logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -181,12 +197,15 @@ client.on('message', msg => {
 			msg.reply("Dicecord usage : !1d100 ; !1d10 ; !1d4 ; !1d6 ; !1d12 ; !1d20 ; !1d8 ; !1d3 ; !1d2");
 			break;
 		case '!ping':
+    logger.info('Ping');
 			msg.reply('Pong!');
 			break;
 		case '!stat':
+      logger.info('Statistiques');
 			msg.reply('Il y a eu '+count+' lancés depuis mon démarrage');
+      logger.info('Il y a eu '+count+' lancés');
     }
-    logger.debug(count+' lancés faits');
+    logger.info(count+' lancés faits');
 });
 
 // connexion du bot aux salons
