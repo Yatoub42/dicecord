@@ -23,7 +23,7 @@ if (!Fs.existsSync(logDir)) {
 const dailyRotateFileTransport = new transports.DailyRotateFile({
   filename: `${logDir}/dicecord_%DATE%.log`,
   //zippedArchive: true,
-  maxFiles: '90d'
+  maxFiles: '90d',
   datePattern: 'YYYY-MM-DD'
 });
 
