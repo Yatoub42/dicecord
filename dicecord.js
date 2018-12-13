@@ -96,7 +96,7 @@ client.on('message', msg => {
     switch (msg.content) {
         case '!1d100':
             var dice='1d100';
-            logger.info('1d100 demandé par '+msg.member.username);
+            logger.info('1d100 demandé par '+msg.member.user.tag);
             var resultat = gen(1,100)
             logger.info(resultat+' généré');
             //resultat = 100
