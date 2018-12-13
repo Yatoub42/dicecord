@@ -22,8 +22,8 @@ if (!Fs.existsSync(logDir)) {
 
 const dailyRotateFileTransport = new transports.DailyRotateFile({
   filename: `${logDir}/dicecord_%DATE%.log`,
-  //zippedArchive: true,
-  maxFiles: '90d',
+  zippedArchive: true,
+  maxFiles: '365d',
   datePattern: 'YYYY-MM-DD'
 });
 
@@ -116,7 +116,7 @@ client.on('message', msg => {
             break;
         case '!1d10':
             var dice='1d10';
-            logger.info('1d10 demandé');
+            logger.info('1d10 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             var resultat = gen(1,10)
             logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
@@ -124,7 +124,7 @@ client.on('message', msg => {
             break;
         case '!1d12':
             var dice='1d12';
-            logger.info('1d12 demandé');
+            logger.info('1d12 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             var resultat = gen(1,12)
             logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat)
@@ -132,7 +132,7 @@ client.on('message', msg => {
             break;
         case '!1d2':
             var dice='1d2';
-            logger.info('1d2 demandé');
+            logger.info('1d2 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             var resultat = gen(1,2)
             logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
@@ -140,7 +140,7 @@ client.on('message', msg => {
             break;
         case '!1d3':
             var dice='1d3';
-            logger.info('1d3 demandé');
+            logger.info('1d3 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             var resultat = gen(1,3)
             logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
@@ -148,7 +148,7 @@ client.on('message', msg => {
             break;
         case '!1d4':
             var dice='1d4';
-            logger.info('1d4 demandé');
+            logger.info('1d4 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             var resultat = gen(1,4)
             logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
@@ -156,7 +156,7 @@ client.on('message', msg => {
             break;
         case '!1d6':
             var dice='1d6';
-            logger.info('1d6 demandé');
+            logger.info('1d6 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             var resultat = gen(1,6)
             logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
@@ -164,7 +164,7 @@ client.on('message', msg => {
             break;
         case '!1d8':
             var dice='1d8';
-            logger.info('1d8 demandé');
+            logger.info('1d8 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             var resultat = gen(1,8)
             logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
@@ -172,7 +172,7 @@ client.on('message', msg => {
             break;
         case '!1d20':
             var dice='1d20';
-            logger.info('1d20 demandé');
+            logger.info('1d20 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             var resultat = gen(1,20)
             logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
