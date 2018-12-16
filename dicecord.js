@@ -1,23 +1,23 @@
 // Libraries
 const Discord = require('discord.js'); //npm install discord.js --save
 const Chance = require('chance');//npm install chance --save
-const Fs = require('fs');
+const fs = require('fs');
 const { createLogger, format, transports } = require('winston');
 require('winston-daily-rotate-file');
 const path = require('path');
 const logDir = 'log';
 // Fichiers
 const Auth = require('./Include/auth.priv.json');
-const Critpos = Fs.readFileSync("./Include/critpos.txt", "UTF-8");
-const Critneg= Fs.readFileSync("./Include/critneg.txt", "UTF-8");
-const Critmixte= Fs.readFileSync("./Include/critmixte.txt", "UTF-8");
+const Critpos = fs.readFileSync("./Include/critpos.txt", "UTF-8");
+const Critneg= fs.readFileSync("./Include/critneg.txt", "UTF-8");
+const Critmixte= fs.readFileSync("./Include/critmixte.txt", "UTF-8");
 // Instanciations
 var chance = new Chance();
 const client = new Discord.Client();
 //logger
 // Création du répertoire si il n'existe pas
-if (!Fs.existsSync(logDir)) {
-  Fs.mkdirSync(logDir);
+if (!fs.existsSync(logDir)) {
+  fs.mkdirSync(logDir);
 }
 
 const dailyRotateFileTransport = new transports.DailyRotateFile({
