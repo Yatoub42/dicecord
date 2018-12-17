@@ -97,10 +97,10 @@ client.on('message', msg => {
         case '!1d100':
             var dice='1d100';
             logger.info('1d100 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
-            var resultat = gen(1,100)
+            var resultat = gen(0,99)
             logger.info(resultat+' généré');
             //resultat = 100
-            if (resultat && (resultat === 100 || resultat <= 5)) {
+            if (resultat <= 5) {
               logger.info('réussite critique');
               msg.reply(dice+'='+resultat+'\n'+reussiteCritique())
             } else if (resultat >= 95) {
