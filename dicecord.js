@@ -100,12 +100,12 @@ client.on('message', msg => {
             var resultat = gen(1,100)
             logger.info(resultat+' généré');
             //resultat = 100
-            if (resultat >= 95) {
-              logger.info('echec critique');
-              msg.reply(dice+'='+resultat+'\n'+echecCritique())
-            } else if (resultat <= 5) {
+            if (resultat && (resultat === 100 || resultat <= 5)) {
               logger.info('réussite critique');
-              msg.reply(dice+'='+resultat+'\n'+reussiteCritique());
+              msg.reply(dice+'='+resultat+'\n'+reussiteCritique())
+            } else if (resultat >= 95) {
+              logger.info('échec critique');
+              msg.reply(dice+'='+resultat+'\n'+echecCritique());
             } else if (resultat && (resultat === 42 || resultat === 69)) {
               logger.info('critique mixte');
               msg.reply(dice+'='+resultat+'\n'+mixteCritique());
