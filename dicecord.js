@@ -194,7 +194,7 @@ client.on('message', msg => {
             }
             break;*/
 		case '!help':
-			msg.reply("Dicecord usage : !1d100 ; !1d10 ; !1d4 ; !1d6 ; !1d12 ; !1d20 ; !1d8 ; !1d3 ; !1d2");
+			msg.reply("Dicecord usage : !1d100 ; !1d10 ; !1d4 ; !1d6 ; !1d12 ; !1d20 ; !1d8 ; !1d3 ; !1d2\nLes dés 100 sont entre 0 et 99 ; les autres entre 1 et leur valeur");
 			break;
 		case '!ping':
     logger.info('Ping');
