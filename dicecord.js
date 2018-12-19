@@ -88,7 +88,7 @@ Client.on('message', msg => {
         case '!1d10':
             dice='1d10';
             logger.info('1d10 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
-            resultat = jet.gen(1,10)
+            resultat = jet.gen(1,10);
             logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
             count++;
@@ -96,15 +96,15 @@ Client.on('message', msg => {
         case '!1d12':
             dice='1d12';
             logger.info('1d12 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
-            resultat = jet.gen(1,12)
+            resultat = jet.gen(1,12);
             logger.info(resultat+' généré');
-            msg.reply(dice+'='+resultat)
+            msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d2':
             dice='1d2';
             logger.info('1d2 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
-            resultat = jet.gen(1,2)
+            resultat = jet.gen(1,2);
             logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
             count++;
@@ -112,7 +112,7 @@ Client.on('message', msg => {
         case '!1d3':
             dice='1d3';
             logger.info('1d3 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
-            resultat = jet.gen(1,3)
+            resultat = jet.gen(1,3);
             logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
             count++;
@@ -120,7 +120,7 @@ Client.on('message', msg => {
         case '!1d4':
             dice='1d4';
             logger.info('1d4 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
-            resultat = jet.gen(1,4)
+            resultat = jet.gen(1,4);
             logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
             count++;
@@ -128,7 +128,7 @@ Client.on('message', msg => {
         case '!1d6':
             dice='1d6';
             logger.info('1d6 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
-            resultat = jet.gen(1,6)
+            resultat = jet.gen(1,6);
             logger.info(resultat+' généré');
             msg.reply(dice+'='+resultat);
             count++;
