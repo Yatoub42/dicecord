@@ -1,6 +1,7 @@
 // Libraries
 //persos
 const jet = require('./lib/critique.js');
+const db = require('./lib/bdd.js');
 //officielles
 const Discord = require('discord.js'); //npm install discord.js --save
 const Fs = require('fs');
@@ -70,6 +71,7 @@ Client.on('message', msg => {
             logger.info('1d100 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(0,99);
             logger.info(resultat+' généré');
+            db.insert(msg.member.user.username,'100',resultat);
             //resultat = 100
             if (resultat <= 5) {
               logger.info('réussite critique');
@@ -90,6 +92,7 @@ Client.on('message', msg => {
             logger.info('1d10 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,10);
             logger.info(resultat+' généré');
+            db.insert(msg.member.user.username,'10',resultat);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -98,6 +101,7 @@ Client.on('message', msg => {
             logger.info('1d12 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,12);
             logger.info(resultat+' généré');
+            db.insert(msg.member.user.username,'12',resultat);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -106,6 +110,7 @@ Client.on('message', msg => {
             logger.info('1d2 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,2);
             logger.info(resultat+' généré');
+            db.insert(msg.member.user.username,'2',resultat);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -114,6 +119,7 @@ Client.on('message', msg => {
             logger.info('1d3 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,3);
             logger.info(resultat+' généré');
+            db.insert(msg.member.user.username,'3',resultat);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -122,6 +128,7 @@ Client.on('message', msg => {
             logger.info('1d4 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,4);
             logger.info(resultat+' généré');
+            db.insert(msg.member.user.username,'4',resultat);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -130,22 +137,25 @@ Client.on('message', msg => {
             logger.info('1d6 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,6);
             logger.info(resultat+' généré');
+            db.insert(msg.member.user.username,'6',resultat);
             msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d8':
             dice='1d8';
             logger.info('1d8 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
-            resultat = jet.gen(1,8)
+            resultat = jet.gen(1,8);
             logger.info(resultat+' généré');
+            db.insert(msg.member.user.username,'8',resultat);
             msg.reply(dice+'='+resultat);
             count++;
             break;
         case '!1d20':
             dice='1d20';
             logger.info('1d20 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
-            resultat = jet.gen(1,20)
+            resultat = jet.gen(1,20);
             logger.info(resultat+' généré');
+            db.insert(msg.member.user.username,'20',resultat);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -173,7 +183,7 @@ Client.on('message', msg => {
 			break;
 		case '!stat':
       logger.info('Statistiques');
-			msg.reply('Il y a eu '+count+' lancés depuis mon démarrage');
+			//msg.reply('Il y a eu '+count+' lancés depuis mon démarrage');
       logger.info('Il y a eu '+count+' lancés');
     }
     //logger.info(count+' lancés faits');
