@@ -1,7 +1,7 @@
 {
   "name": "Dicecord",
   "description": "Bot discord génération dés",
-  "version": "1.5.0",
+  "version": "2.0.0",
   "maintainers": [
     {
       "name": "Yatoub42",
@@ -11,9 +11,8 @@
   "dependencies": {
     "chance": "1.0.16",
     "discord.js": "11.4.2",
-    "sqlite3": "^4.0.4",
-    "winston": "^3.1.0",
-    "winston-daily-rotate-file": "^3.5.1"
+    "moment": "^2.23.0",
+    "sqlite3": "^4.0.4"
   },
   "licenses": [
     {
