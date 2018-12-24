@@ -22,9 +22,9 @@ db.create();
 // Validation de la connexion
 Client.on('ready', () => {
 	//client.user.setAvatar('./include/avatar.png');
-  Client.user.setAvatar('./include/avatar.png')
+  /*Client.user.setAvatar('./include/avatar.png')
   .then(user => console.info(`Avatar setté !`))
-  .catch(console.error());
+  .catch(console.error());*/
   console.info('Bot Connected')
 });
 
@@ -161,7 +161,6 @@ Client.on('message', msg => {
             console.info('total = '+total);
             console.info('Pourcent réussite critique = '+percentReussite+'%');
             console.info('Pourcent réussite critique = '+percentEchec+'%');
-
             break;
     }
     //console.info(count+' lancés faits');
