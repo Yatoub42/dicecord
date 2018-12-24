@@ -151,8 +151,17 @@ Client.on('message', msg => {
 			break;
 		case '!stat':
             //console.info('Il y a eu '+count+' lancés');
-            reussite = db.select();
-            console.info(reussite);
+            let reussite = db.select(msg.member.user.username,'reussite');
+            let echec = db.select(msg.member.user.username,'echec');
+            let total = db.selectAll(msg.member.user.username);
+            let percentReussite = (100 * reussite) / total ;
+            let percentEchec = (100 * echec) / total ;
+            console.info('reussite = '+reussite);
+            console.info('échec = '+echec);
+            console.info('total = '+total);
+            console.info('Pourcent réussite critique = '+percentReussite+'%');
+            console.info('Pourcent réussite critique = '+percentEchec+'%');
+
             break;
     }
     //console.info(count+' lancés faits');
