@@ -164,9 +164,7 @@ fabric.properties
 .idea/sonarlint
 
 # Private file
-*.priv.json
-*.priv
-*.private
+*priv*
 
 # Webstorm
 .idea/*
