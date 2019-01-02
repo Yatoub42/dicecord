@@ -17,8 +17,6 @@ let count = 0;
 //Création de la bdd
 db.create();
 
-
-
 // Validation de la connexion
 Client.on('ready', () => {
 	//client.user.setAvatar('./include/avatar.png');
@@ -27,16 +25,6 @@ Client.on('ready', () => {
   .catch(console.error());*/
   console.info('Bot Connected')
 });
-
-function printReussite(data){
-    console.warn('dataReussite='+data);
-    return data;
-}
-function printEchec(data){
-    console.warn('dataEchec='+data);
-    return data;
-}
-
 
 // Commandes et réponses
 Client.on('message', msg => {
@@ -160,7 +148,6 @@ Client.on('message', msg => {
 			msg.reply('Pong!');
 			break;
 		case '!stat':
-
             let reussite =  db.select(msg.member.user.username,'reussite');
             let echec = db.select(msg.member.user.username,'echec');
             let total = db.selectAll(msg.member.user.username);
@@ -171,7 +158,10 @@ Client.on('message', msg => {
             console.info('total = '+total);
             console.info('Pourcent réussite critique = '+percentReussite+'%');
             console.info('Pourcent réussite critique = '+percentEchec+'%');
-            msg.reply('\nSalut, tu as fait '+total+' lancés de dés.'+'\n'+'Tu a fait '+reussite+' réussite critiques soit '+percentReussite+'%\nTu a fait '+echec+' échecs critiques soit '+percentEchec+'%\nAlors tu es chanceux ou pas ?');
+            msg.reply('\nSalut, tu as fait '+total+' lancés de dés.'+
+                '\n'+'Tu a fait '+reussite+' réussite critiques soit '+percentReussite+'%\n' +
+                'Tu a fait '+echec+' échecs critiques soit '+percentEchec+'%\n' +
+                'Alors tu es chanceux ou pas ?');
             break;
     }
     //console.info(count+' lancés faits');
