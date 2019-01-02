@@ -172,6 +172,8 @@ fabric.properties
 .idea/*
 
 # SQLite
-data/*
+*.db
+*.sqlite
+*.db3
 
 # End of https://www.gitignore.io/api/node,webstorm

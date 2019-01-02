@@ -28,6 +28,16 @@ Client.on('ready', () => {
   console.info('Bot Connected')
 });
 
+function printReussite(data){
+    console.warn('dataReussite='+data);
+    return data;
+}
+function printEchec(data){
+    console.warn('dataEchec='+data);
+    return data;
+}
+
+
 // Commandes et réponses
 Client.on('message', msg => {
     switch (msg.content) {
@@ -128,7 +138,7 @@ Client.on('message', msg => {
             count++;
             break;
 		case '!debug':
-            dice='DEBUG'
+            dice='DEBUG';
             let i;
             for (i = 0; i < 10; i++) {
                 resultat = jet.gen(0, 99);
@@ -150,8 +160,8 @@ Client.on('message', msg => {
 			msg.reply('Pong!');
 			break;
 		case '!stat':
-            //console.info('Il y a eu '+count+' lancés');
-            let reussite = db.select(msg.member.user.username,'reussite');
+
+            let reussite =  db.select(msg.member.user.username,'reussite');
             let echec = db.select(msg.member.user.username,'echec');
             let total = db.selectAll(msg.member.user.username);
             let percentReussite = (100 * reussite) / total ;
@@ -161,6 +171,7 @@ Client.on('message', msg => {
             console.info('total = '+total);
             console.info('Pourcent réussite critique = '+percentReussite+'%');
             console.info('Pourcent réussite critique = '+percentEchec+'%');
+            msg.reply('\nSalut, tu as fait '+total+' lancés de dés.'+'\n'+'Tu a fait '+reussite+' réussite critiques soit '+percentReussite+'%\nTu a fait '+echec+' échecs critiques soit '+percentEchec+'%\nAlors tu es chanceux ou pas ?');
             break;
     }
     //console.info(count+' lancés faits');
