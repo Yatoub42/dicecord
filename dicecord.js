@@ -22,7 +22,7 @@ Client.on('ready', () => {
   Client.user.setAvatar('./include/avatar.png')
   .then(user => console.info(`Avatar setté !`))
   .catch(console.error());
-  Client.user.setGame('vous juger !');
+  Client.user.setActivity('vous juger !');
   console.info('Bot Connected')
 });
 
