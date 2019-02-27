@@ -163,6 +163,11 @@ Client.on('message', msg => {
                 'Tu a fait '+echec+' échecs critiques soit '+percentEchec+'%\n' +
                 'Alors tu es chanceux ou pas ?');
             break;
+        case '!statAll':
+            let topTier= db.statAll();
+            console.info(topTier);
+			//msg.reply('Pong!');
+			break;
     }
     //console.info(count+' lancés faits');
 });
