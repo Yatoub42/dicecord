@@ -182,7 +182,7 @@ Client.on('message', msg => {
 			//msg.reply('Pong!');
             break;
         case '!dinfo':
-            console.info('pseudo='+msg.member.guildmember.displayname);
+            console.info('pseudo='+msg.author.guildmember.displayname);
             break;
     }
     //console.info(count+' lancés faits');
