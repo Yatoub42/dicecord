@@ -170,6 +170,8 @@ fabric.properties
 .idea/*
 
 # SQLite
+./db/*
+db/*
 *.db
 *.sqlite
 *.db3
