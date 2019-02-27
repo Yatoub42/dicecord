@@ -164,8 +164,19 @@ Client.on('message', msg => {
                 'Alors tu es chanceux ou pas ?');
             break;
         case '!statAll':
+            db.creaTable();
             let topTier= db.statAll();
             console.info(topTier);
+			//msg.reply('Pong!');
+            break;
+        case '!creatable':
+            db.creaTable();
+            console.info('table créée');
+			//msg.reply('Pong!');
+            break;
+        case '!droptable':
+            db.dropTable();
+            console.info('table droppée');
 			//msg.reply('Pong!');
 			break;
     }
