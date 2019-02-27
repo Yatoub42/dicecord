@@ -166,7 +166,10 @@ Client.on('message', msg => {
         case '!statAll':
             //db.creaTable();
             let topTier= db.statAll();
-            console.info(topTier);
+            topTier.forEach((row) => {
+                console.info(row);
+              });
+            //console.info(topTier);
 			//msg.reply('Pong!');
             break;
         case '!creatable':
