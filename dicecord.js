@@ -181,8 +181,8 @@ Client.on('message', msg => {
             //console.info(topTier);
 			//msg.reply('Pong!');
             break;
-        case '!info':
-            console.info('pseudo='+msg.member.user.tag)
+        case '!dinfo':
+            console.info('pseudo='+msg.member.guildmember.displayname)
             break;
     }
     //console.info(count+' lancés faits');
