@@ -164,7 +164,7 @@ Client.on('message', msg => {
                 'Alors tu es chanceux ou pas ?');
             break;
         case '!statAll':
-            db.creaTable();
+            //db.creaTable();
             let topTier= db.statAll();
             console.info(topTier);
 			//msg.reply('Pong!');
