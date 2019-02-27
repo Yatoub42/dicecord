@@ -183,6 +183,7 @@ Client.on('message', msg => {
             break;
         case '!info':
             console.info('pseudo='+msg.member.user.tag)
+            break;
     }
     //console.info(count+' lancés faits');
 });
