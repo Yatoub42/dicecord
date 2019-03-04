@@ -104,8 +104,8 @@ Client.on('message', msg => {
             let result1 = jet.gen(1,4);
             let result2 = jet.gen(1,4);
             console.info(result1+' et '+result2+' généré');
-            db.insert(msg.member.username,'4',result1,null);
-            db.insert(msg.member.username,'4',result2,null);
+            db.insert(msg.member.user.username,'4',result1,null);
+            db.insert(msg.member.user.username,'4',result2,null);
             msg.reply(dice+'='+result1+' et '+result2);
             count++;
             break;
