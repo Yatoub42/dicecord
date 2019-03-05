@@ -15,9 +15,6 @@ let dice;
 let resultat;
 let count = 0;
 
-//Création de la bdd
-db.create();
-
 // Validation de la connexion
 Client.on('ready', () => {
   Client.user.setAvatar('./include/avatar.png')
@@ -28,6 +25,9 @@ Client.on('ready', () => {
   let ServerName = Client.guild.name;
   console.log(ServerName);
 });
+
+//Création de la bdd
+db.create();
 
 // Commandes et réponses
 Client.on('message', msg => {
