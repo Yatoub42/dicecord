@@ -213,7 +213,7 @@ if (program.niven) {
     Client.login(Auth.token2);
     Client.on("error", (e) => console.error(e));    
 } else if (program.test) {
-    Client.login(Auth.token3);
+    Client.login(Auth.tokenTest);
     Client.on("error", (e) => console.error(e)); 
 }
 //Client.on("warn", (e) => console.warn(e));
