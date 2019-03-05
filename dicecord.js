@@ -14,17 +14,17 @@ const Client = new Discord.Client();
 let dice;
 let resultat;
 let count = 0;
-let ServerName;
+let ServerID;
 
 // Validation de la connexion
-Client.on('ready', () => {
+Client.on('ready', instance => {
   Client.user.setAvatar('./include/avatar.png')
   .then(user => console.info(`Avatar setté !`))
   .catch(console.error());
   Client.user.setActivity('vous juger !');
   console.info('Bot Connected');
-  ServerName = Client.guild.name;
-  console.log(ServerName);
+  ServerID = client.guilds.get();
+  console.log(ServerID);
 });
 
 //Création de la bdd
