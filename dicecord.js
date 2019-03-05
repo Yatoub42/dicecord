@@ -27,7 +27,7 @@ Client.on('ready', () => {
 });
 
 //Création de la bdd
-db.create();
+db.create(ServerName);
 
 // Commandes et réponses
 Client.on('message', msg => {
@@ -204,6 +204,7 @@ program
   .version('3.0.0')
   .option('--nyria', 'Nyria')
   .option('--niven', 'Niven')
+  .option('--test', 'Test')
   .parse(process.argv);
 
 
@@ -214,6 +215,9 @@ if (program.option === 'Niven') {
 } else if (program.option === 'Nyria') {
     Client.login(Auth.token2);
     Client.on("error", (e) => console.error(e));    
+} else if (program.option === 'Test') {
+    Client.login(Auth.token3);
+    Client.on("error", (e) => console.error(e)); 
 }
 //Client.on("warn", (e) => console.warn(e));
 //Client.on("debug", (e) => console.info(e));
