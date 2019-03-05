@@ -168,9 +168,9 @@ Client.on('message', msg => {
 			msg.reply('Pong!');
 			break;
 		case '!stat':
-            let reussite =  db.select(msg.member.user.username,'reussite',msg.guild.name);
-            let echec = db.select(msg.member.user.username,'echec',msg.guild.name);
-            let total = db.selectAll(msg.member.user.username,msg.guild.name);
+            let reussite =  db.select(msg.member.user.username,'reussite',ServerName);
+            let echec = db.select(msg.member.user.username,'echec',ServerName);
+            let total = db.selectAll(msg.member.user.username,ServerName);
             let percentReussite = (100 * reussite) / total ;
             let percentEchec = (100 * echec) / total ;
             console.info('reussite = '+reussite);
