@@ -31,6 +31,7 @@ db.createdb();
 // Commandes et réponses
 Client.on('message', msg => {
     let ServerName = SqlString.escape(msg.guild.name);
+    ServerName=ServerName.replace(" ","_");
     db.createTable(ServerName);
     switch (msg.content) {
         case '!1d100':
