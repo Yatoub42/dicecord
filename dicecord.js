@@ -29,7 +29,10 @@ db.createdb();
 
 // Commandes et réponses
 Client.on('message', msg => {
-    db.createTable(msg.guild.name);
+    let ServerName = jsesc(msg.guild.name, {
+        'escapeEverything': true
+      });
+    db.createTable(ServerName);
     switch (msg.content) {
         case '!1d100':
             dice = '1d100';
@@ -39,18 +42,18 @@ Client.on('message', msg => {
             //resultat = 100
             if (resultat <= 5) {
               console.info('réussite critique');
-                db.insert(msg.member.user.username,'100',resultat,'reussite',msg.guild.name);
+                db.insert(msg.member.user.username,'100',resultat,'reussite',ServerName);
                 msg.reply(dice+'='+resultat+'\n'+jet.reussiteCritique())
             } else if (resultat >= 95) {
               console.info('échec critique');
-                db.insert(msg.member.user.username,'100',resultat,'echec',msg.guild.name);
+                db.insert(msg.member.user.username,'100',resultat,'echec',ServerName);
                 msg.reply(dice+'='+resultat+'\n'+jet.echecCritique());
             } else if (resultat && (resultat === 42 || resultat === 69)) {
               console.info('critique mixte');
-                db.insert(msg.member.user.username,'100',resultat,'mixte',msg.guild.name);
+                db.insert(msg.member.user.username,'100',resultat,'mixte',ServerName);
                 msg.reply(dice+'='+resultat+'\n'+jet.mixteCritique());
             } else {
-                db.insert(msg.member.user.username,'100',resultat,null,msg.guild.name);
+                db.insert(msg.member.user.username,'100',resultat,null,ServerName);
                 msg.reply(dice+'='+resultat);
             };
             count++;
@@ -60,7 +63,7 @@ Client.on('message', msg => {
             console.info('1d10 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,10);
             console.info(resultat+' généré');
-            db.insert(msg.member.user.username,'10',resultat,null,msg.guild.name);
+            db.insert(msg.member.user.username,'10',resultat,null,ServerName);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -69,7 +72,7 @@ Client.on('message', msg => {
             console.info('1d12 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,12);
             console.info(resultat+' généré');
-            db.insert(msg.member.user.username,'12',resultat,null,msg.guild.name);
+            db.insert(msg.member.user.username,'12',resultat,null,ServerName);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -78,7 +81,7 @@ Client.on('message', msg => {
             console.info('1d2 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,2);
             console.info(resultat+' généré');
-            db.insert(msg.member.user.username,'2',resultat,null,msg.guild.name);
+            db.insert(msg.member.user.username,'2',resultat,null,ServerName);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -87,7 +90,7 @@ Client.on('message', msg => {
             console.info('1d3 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,3);
             console.info(resultat+' généré');
-            db.insert(msg.member.user.username,'3',resultat,null,msg.guild.name);
+            db.insert(msg.member.user.username,'3',resultat,null,ServerName);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -96,7 +99,7 @@ Client.on('message', msg => {
             console.info('1d4 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,4);
             console.info(resultat+' généré');
-            db.insert(msg.member.user.username,'4',resultat,null,msg.guild.name);
+            db.insert(msg.member.user.username,'4',resultat,null,ServerName);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -106,8 +109,8 @@ Client.on('message', msg => {
             let result1 = jet.gen(1,4);
             let result2 = jet.gen(1,4);
             console.info(result1+' et '+result2+' généré');
-            db.insert(msg.member.user.username,'4',result1,null,msg.guild.name);
-            db.insert(msg.member.user.username,'4',result2,null,msg.guild.name);
+            db.insert(msg.member.user.username,'4',result1,null,ServerName);
+            db.insert(msg.member.user.username,'4',result2,null,ServerName);
             msg.reply(dice+'='+result1+' et '+result2);
             count++;
             break;
@@ -116,7 +119,7 @@ Client.on('message', msg => {
             console.info('1d6 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,6);
             console.info(resultat+' généré');
-            db.insert(msg.member.user.username,'6',resultat,null,msg.guild.name);
+            db.insert(msg.member.user.username,'6',resultat,null,ServerName);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -125,7 +128,7 @@ Client.on('message', msg => {
             console.info('1d8 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,8);
             console.info(resultat+' généré');
-            db.insert(msg.member.user.username,'8',resultat,null,msg.guild.name);
+            db.insert(msg.member.user.username,'8',resultat,null,ServerName);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -134,7 +137,7 @@ Client.on('message', msg => {
             console.info('1d20 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,20);
             console.info(resultat+' généré');
-            db.insert(msg.member.user.username,'20',resultat,null,msg.guild.name);
+            db.insert(msg.member.user.username,'20',resultat,null,ServerName);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -178,7 +181,7 @@ Client.on('message', msg => {
             break;
         case '!statAll':
             //db.creaTable();
-            let topTier= db.statAll(msg.guild.name);
+            let topTier= db.statAll(ServerName);
             let top_user0 = topTier[0].USER;
             let top_count0 = topTier[0].COUNT;
             let top_user1 = topTier[1].USER;
