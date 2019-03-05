@@ -14,7 +14,6 @@ const Client = new Discord.Client();
 let dice;
 let resultat;
 let count = 0;
-let ServerID;
 
 // Validation de la connexion
 Client.on('ready', instance => {
@@ -23,8 +22,6 @@ Client.on('ready', instance => {
   .catch(console.error());
   Client.user.setActivity('vous juger !');
   console.info('Bot Connected');
-  ServerID = client.guilds.get();
-  console.log(ServerID);
 });
 
 //Création de la bdd
