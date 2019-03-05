@@ -24,7 +24,9 @@ Client.on('ready', () => {
   .then(user => console.info(`Avatar setté !`))
   .catch(console.error());
   Client.user.setActivity('vous juger !');
-  console.info('Bot Connected')
+  console.info('Bot Connected');
+  let ServerName = Client.guild.name;
+  console.log(ServerName);
 });
 
 // Commandes et réponses
