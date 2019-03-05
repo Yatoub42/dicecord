@@ -4,6 +4,7 @@ const jet = require('./lib/critique.js');
 const db = require('./lib/bdd.js');
 //officielles
 const Discord = require('discord.js'); //npm install discord.js --save
+var program = require('commander'); //npm install commander --save
 // Fichiers
 const Auth = require('./include/auth.priv.json');
 // Instanciations
@@ -196,8 +197,21 @@ Client.on('message', msg => {
     //console.info(count+' lancés faits');
 });
 
+
+program
+  .version('3.0.0')
+  .option('--nyria', 'Nyria')
+  .option('--niven', 'Niven')
+  .parse(process.argv);
+
+
 // connexion du bot aux salons
-Client.login(Auth.token);
-Client.on("error", (e) => console.error(e));
+if (program.option === 'Niven') {
+    Client.login(Auth.token1);
+    Client.on("error", (e) => console.error(e));
+} else if (program.option === 'Nyria') {
+    Client.login(Auth.token2);
+    Client.on("error", (e) => console.error(e));    
+}
 //Client.on("warn", (e) => console.warn(e));
 //Client.on("debug", (e) => console.info(e));
