@@ -210,13 +210,13 @@ program
 
 
 // connexion du bot aux salons
-if (program.option === 'Niven') {
+if (program.niven) {
     Client.login(Auth.token1);
     Client.on("error", (e) => console.error(e));
-} else if (program.option === 'Nyria') {
+} else if (program.nyria) {
     Client.login(Auth.token2);
     Client.on("error", (e) => console.error(e));    
-} else if (program.option === 'Test') {
+} else if (program.test) {
     Client.login(Auth.token3);
     Client.on("error", (e) => console.error(e)); 
 }
