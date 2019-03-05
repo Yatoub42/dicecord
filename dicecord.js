@@ -31,7 +31,8 @@ db.createdb();
 // Commandes et réponses
 Client.on('message', msg => {
     let ServerName = jsesc(msg.guild.name, {
-        'escapeEverything': true
+        'escapeEverything': true,
+        'quotes': 'double'
       });
     db.createTable(ServerName);
     switch (msg.content) {
