@@ -5,7 +5,7 @@ const db = require('./lib/bdd.js');
 //officielles
 const Discord = require('discord.js'); //npm install discord.js --save
 var program = require('commander'); //npm install commander --save
-const escapeSql = require('sql-escape-string')
+const SqlString = require('sqlstring-sqlite');
 // Fichiers
 const Auth = require('./include/auth.priv.json');
 // Instanciations
@@ -30,7 +30,7 @@ db.createdb();
 
 // Commandes et réponses
 Client.on('message', msg => {
-    let ServerName = escapeSql(msg.guild.name);
+    let ServerName = SqlString(msg.guild.name);
     db.createTable(ServerName);
     switch (msg.content) {
         case '!1d100':

@@ -14,7 +14,7 @@
     "commander": "^2.19.0",
     "discord.js": "11.4.2",
     "moment": "^2.23.0",
-    "sql-escape-string": "^1.1.0"
+    "sqlstring-sqlite": "^0.1.1"
   },
   "licenses": [
     {
