@@ -28,10 +28,11 @@ Client.on('ready', instance => {
 });
 
 //Création de la bdd
-//db.create(ServerName);
+db.createdb();
 
 // Commandes et réponses
 Client.on('message', msg => {
+    db.createTable(msg.guild.name);
     switch (msg.content) {
         case '!1d100':
             dice = '1d100';
@@ -41,18 +42,18 @@ Client.on('message', msg => {
             //resultat = 100
             if (resultat <= 5) {
               console.info('réussite critique');
-                db.insert(msg.member.user.username,'100',resultat,'reussite');
+                db.insert(msg.member.user.username,'100',resultat,'reussite',msg.guild.name);
                 msg.reply(dice+'='+resultat+'\n'+jet.reussiteCritique())
             } else if (resultat >= 95) {
               console.info('échec critique');
-                db.insert(msg.member.user.username,'100',resultat,'echec');
+                db.insert(msg.member.user.username,'100',resultat,'echec',msg.guild.name);
                 msg.reply(dice+'='+resultat+'\n'+jet.echecCritique());
             } else if (resultat && (resultat === 42 || resultat === 69)) {
               console.info('critique mixte');
-                db.insert(msg.member.user.username,'100',resultat,'mixte');
+                db.insert(msg.member.user.username,'100',resultat,'mixte',msg.guild.name);
                 msg.reply(dice+'='+resultat+'\n'+jet.mixteCritique());
             } else {
-                db.insert(msg.member.user.username,'100',resultat,null);
+                db.insert(msg.member.user.username,'100',resultat,null,msg.guild.name);
                 msg.reply(dice+'='+resultat);
             };
             count++;
@@ -62,7 +63,7 @@ Client.on('message', msg => {
             console.info('1d10 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,10);
             console.info(resultat+' généré');
-            db.insert(msg.member.user.username,'10',resultat,null);
+            db.insert(msg.member.user.username,'10',resultat,null,msg.guild.name);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -71,7 +72,7 @@ Client.on('message', msg => {
             console.info('1d12 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,12);
             console.info(resultat+' généré');
-            db.insert(msg.member.user.username,'12',resultat,null);
+            db.insert(msg.member.user.username,'12',resultat,null,msg.guild.name);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -80,7 +81,7 @@ Client.on('message', msg => {
             console.info('1d2 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,2);
             console.info(resultat+' généré');
-            db.insert(msg.member.user.username,'2',resultat,null);
+            db.insert(msg.member.user.username,'2',resultat,null,msg.guild.name);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -89,7 +90,7 @@ Client.on('message', msg => {
             console.info('1d3 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,3);
             console.info(resultat+' généré');
-            db.insert(msg.member.user.username,'3',resultat,null);
+            db.insert(msg.member.user.username,'3',resultat,null,msg.guild.name);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -98,7 +99,7 @@ Client.on('message', msg => {
             console.info('1d4 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,4);
             console.info(resultat+' généré');
-            db.insert(msg.member.user.username,'4',resultat,null);
+            db.insert(msg.member.user.username,'4',resultat,null,msg.guild.name);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -108,8 +109,8 @@ Client.on('message', msg => {
             let result1 = jet.gen(1,4);
             let result2 = jet.gen(1,4);
             console.info(result1+' et '+result2+' généré');
-            db.insert(msg.member.user.username,'4',result1,null);
-            db.insert(msg.member.user.username,'4',result2,null);
+            db.insert(msg.member.user.username,'4',result1,null,msg.guild.name);
+            db.insert(msg.member.user.username,'4',result2,null,msg.guild.name);
             msg.reply(dice+'='+result1+' et '+result2);
             count++;
             break;
@@ -118,7 +119,7 @@ Client.on('message', msg => {
             console.info('1d6 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,6);
             console.info(resultat+' généré');
-            db.insert(msg.member.user.username,'6',resultat,null);
+            db.insert(msg.member.user.username,'6',resultat,null,msg.guild.name);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -127,7 +128,7 @@ Client.on('message', msg => {
             console.info('1d8 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,8);
             console.info(resultat+' généré');
-            db.insert(msg.member.user.username,'8',resultat,null);
+            db.insert(msg.member.user.username,'8',resultat,null,msg.guild.name);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -136,7 +137,7 @@ Client.on('message', msg => {
             console.info('1d20 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             resultat = jet.gen(1,20);
             console.info(resultat+' généré');
-            db.insert(msg.member.user.username,'20',resultat,null);
+            db.insert(msg.member.user.username,'20',resultat,null,msg.guild.name);
             msg.reply(dice+'='+resultat);
             count++;
             break;
@@ -163,9 +164,9 @@ Client.on('message', msg => {
 			msg.reply('Pong!');
 			break;
 		case '!stat':
-            let reussite =  db.select(msg.member.user.username,'reussite');
-            let echec = db.select(msg.member.user.username,'echec');
-            let total = db.selectAll(msg.member.user.username);
+            let reussite =  db.select(msg.member.user.username,'reussite',msg.guild.name);
+            let echec = db.select(msg.member.user.username,'echec',msg.guild.name);
+            let total = db.selectAll(msg.member.user.username,msg.guild.name);
             let percentReussite = (100 * reussite) / total ;
             let percentEchec = (100 * echec) / total ;
             console.info('reussite = '+reussite);
@@ -180,7 +181,7 @@ Client.on('message', msg => {
             break;
         case '!statAll':
             //db.creaTable();
-            let topTier= db.statAll();
+            let topTier= db.statAll(msg.guild.name);
             let top_user0 = topTier[0].USER;
             let top_count0 = topTier[0].COUNT;
             let top_user1 = topTier[1].USER;
@@ -200,14 +201,12 @@ Client.on('message', msg => {
     //console.info(count+' lancés faits');
 });
 
-
+//Arguments de lancement
 program
-  .version('3.0.0')
   .option('--nyria', 'Nyria')
   .option('--niven', 'Niven')
   .option('--test', 'Test')
   .parse(process.argv);
-
 
 // connexion du bot aux salons
 if (program.niven) {
