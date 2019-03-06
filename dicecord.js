@@ -17,10 +17,10 @@ let resultat;
 let count = 0;
 
 // Validation de la connexion
-Client.on('ready', instance => {
-  Client.user.setAvatar('./include/avatar.png')
+Client.on('ready', () => {
+  /*Client.user.setAvatar('./include/avatar.png')
   .then(user => console.info(`Avatar setté !`))
-  .catch(console.error());
+  .catch(console.error());*/
   Client.user.setActivity('vous juger !');
   console.info('Bot Connected');
 });
@@ -31,11 +31,12 @@ db.createdb();
 // Commandes et réponses
 Client.on('message', msg => {
     //let ServerName = SqlString.escape(msg.guild.name);
-    let ServerName = msg.guild.name;
-    ServerName=ServerName.replace(" ","");
+    let regex =/\W|_/g;
+    let ServerName = msg.guild.name.replace(regex,"");
+    /*ServerName=ServerName.replace(" ","");
     ServerName=ServerName.replace("'","");
     ServerName=ServerName.replace("(","");
-    ServerName=ServerName.replace(")","");
+    ServerName=ServerName.replace(")","");*/
     db.createTable(ServerName);
     switch (msg.content) {
         case '!1d100':
