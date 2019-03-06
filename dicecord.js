@@ -4,7 +4,7 @@ const jet = require('./lib/critique.js');
 const db = require('./lib/bdd.js');
 //officielles
 const Discord = require('discord.js'); //npm install discord.js --save
-var program = require('commander'); //npm install commander --save
+const program = require('commander'); //npm install commander --save
 const SqlString = require('sqlstring-sqlite');
 // Fichiers
 const Auth = require('./include/auth.priv.json');
@@ -30,13 +30,8 @@ db.createdb();
 
 // Commandes et réponses
 Client.on('message', msg => {
-    //let ServerName = SqlString.escape(msg.guild.name);
-    let regex =/\W|_/g;
+    const regex =/\W|_/g;
     let ServerName = msg.guild.name.replace(regex,"");
-    /*ServerName=ServerName.replace(" ","");
-    ServerName=ServerName.replace("'","");
-    ServerName=ServerName.replace("(","");
-    ServerName=ServerName.replace(")","");*/
     db.createTable(ServerName);
     switch (msg.content) {
         case '!1d100':
