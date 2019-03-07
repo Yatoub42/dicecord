@@ -5,7 +5,6 @@ const db = require('./lib/bdd.js');
 //officielles
 const Discord = require('discord.js'); //npm install discord.js --save
 const program = require('commander'); //npm install commander --save
-const SqlString = require('sqlstring-sqlite');
 // Fichiers
 const Auth = require('./include/auth.priv.json');
 // Instanciations
