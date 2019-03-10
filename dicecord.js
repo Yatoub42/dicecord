@@ -169,6 +169,7 @@ Client.on('message', msg => {
             let percentEchec = (100 * echec) / total ;
             percentReussite = percentReussite.toFixed(2);
             percentEchec = percentEchec.toFixed(2);
+            console.info('Stats demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             console.info('reussite = '+reussite);
             console.info('échec = '+echec);
             console.info('total = '+total);
@@ -177,10 +178,11 @@ Client.on('message', msg => {
             msg.reply('\nSalut, tu as fait '+total+' lancés de dés.'+
                 '\n'+'Tu a fait '+reussite+' réussite critiques soit '+percentReussite+'%\n' +
                 'Tu a fait '+echec+' échecs critiques soit '+percentEchec+'%\n' +
-                'Alors tu es chanceux ou pas ?');
+                "Sinon, ta vie c'est la chance ou le sel ?");
             break;
         case '!statAll':
             //db.creaTable();
+            console.info('StatsAll demandé par '+msg.member.user.username+' sur '+msg.guild.name);
             let topTier= db.statAll(ServerName);
             let top_user0 = topTier[0].USER;
             let top_count0 = topTier[0].COUNT;
@@ -194,11 +196,8 @@ Client.on('message', msg => {
                 '\n'+'2 - '+top_user1+' avec '+top_count1+' lancés !!'+
                 '\n'+'3 - '+top_user2+' avec '+top_count2+' lancés !!'+
                 '\n'+'Tu as intérêt a faire rouler tes dés coco si tu veux être dans mon classement !!');
-            //console.info(topTier);
-			//msg.reply('Pong!');
             break;
     }
-    //console.info(count+' lancés faits');
 });
 
 //Arguments de lancement
