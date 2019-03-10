@@ -54,7 +54,6 @@ Client.on('message', msg => {
                 db.insert(msg.member.user.username,'100',resultat,null,ServerName);
                 msg.reply(dice+'='+resultat);
             };
-            
             break;
         case '!1d10':
             dice='1d10';
@@ -63,7 +62,6 @@ Client.on('message', msg => {
             console.info(resultat+' généré');
             db.insert(msg.member.user.username,'10',resultat,null,ServerName);
             msg.reply(dice+'='+resultat);
-            
             break;
         case '!1d12':
             dice='1d12';
@@ -72,7 +70,6 @@ Client.on('message', msg => {
             console.info(resultat+' généré');
             db.insert(msg.member.user.username,'12',resultat,null,ServerName);
             msg.reply(dice+'='+resultat);
-            
             break;
         case '!1d2':
             dice='1d2';
@@ -81,7 +78,6 @@ Client.on('message', msg => {
             console.info(resultat+' généré');
             db.insert(msg.member.user.username,'2',resultat,null,ServerName);
             msg.reply(dice+'='+resultat);
-            
             break;
         case '!1d3':
             dice='1d3';
@@ -90,7 +86,6 @@ Client.on('message', msg => {
             console.info(resultat+' généré');
             db.insert(msg.member.user.username,'3',resultat,null,ServerName);
             msg.reply(dice+'='+resultat);
-            
             break;
         case '!1d4':
             dice='1d4';
@@ -99,7 +94,6 @@ Client.on('message', msg => {
             console.info(resultat+' généré');
             db.insert(msg.member.user.username,'4',resultat,null,ServerName);
             msg.reply(dice+'='+resultat);
-            
             break;
         case '!2d4':
             dice='2d4';
@@ -110,7 +104,6 @@ Client.on('message', msg => {
             db.insert(msg.member.user.username,'4',result1,null,ServerName);
             db.insert(msg.member.user.username,'4',result2,null,ServerName);
             msg.reply(dice+'='+result1+' et '+result2);
-            
             break;
         case '!1d6':
             dice='1d6';
@@ -118,8 +111,17 @@ Client.on('message', msg => {
             resultat = jet.gen(1,6);
             console.info(resultat+' généré');
             db.insert(msg.member.user.username,'6',resultat,null,ServerName);
-            msg.reply(dice+'='+resultat);
-            
+            msg.reply(dice+'='+resultat);            
+            break;
+        case '!2d6':
+            dice='2d6';
+            console.info('2d6 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
+            let result1 = jet.gen(1,6);
+            let result2 = jet.gen(1,6);
+            console.info(result1+' et '+result2+' généré');
+            db.insert(msg.member.user.username,'6',result1,null,ServerName);
+            db.insert(msg.member.user.username,'6',result2,null,ServerName);
+            msg.reply(dice+'='+result1+' et '+result2);
             break;
         case '!1d8':
             dice='1d8';
@@ -128,7 +130,16 @@ Client.on('message', msg => {
             console.info(resultat+' généré');
             db.insert(msg.member.user.username,'8',resultat,null,ServerName);
             msg.reply(dice+'='+resultat);
-            
+            break;
+        case '!2d8':
+            dice='2d8';
+            console.info('2d8 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
+            let result1 = jet.gen(1,8);
+            let result2 = jet.gen(1,8);
+            console.info(result1+' et '+result2+' généré');
+            db.insert(msg.member.user.username,'8',result1,null,ServerName);
+            db.insert(msg.member.user.username,'8',result2,null,ServerName);
+            msg.reply(dice+'='+result1+' et '+result2);
             break;
         case '!1d20':
             dice='1d20';
@@ -137,7 +148,6 @@ Client.on('message', msg => {
             console.info(resultat+' généré');
             db.insert(msg.member.user.username,'20',resultat,null,ServerName);
             msg.reply(dice+'='+resultat);
-            
             break;
 		case '!debug':
             dice='DEBUG';
