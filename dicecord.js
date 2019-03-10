@@ -13,6 +13,8 @@ const Client = new Discord.Client();
 //variables
 let dice;
 let resultat;
+let result1;
+let result2;
 
 // Validation de la connexion
 Client.on('ready', () => {
@@ -98,8 +100,8 @@ Client.on('message', msg => {
         case '!2d4':
             dice='2d4';
             console.info('2d4 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
-            let result1 = jet.gen(1,4);
-            let result2 = jet.gen(1,4);
+            result1 = jet.gen(1,4);
+            result2 = jet.gen(1,4);
             console.info(result1+' et '+result2+' généré');
             db.insert(msg.member.user.username,'4',result1,null,ServerName);
             db.insert(msg.member.user.username,'4',result2,null,ServerName);
@@ -116,8 +118,8 @@ Client.on('message', msg => {
         case '!2d6':
             dice='2d6';
             console.info('2d6 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
-            let result1 = jet.gen(1,6);
-            let result2 = jet.gen(1,6);
+            result1 = jet.gen(1,6);
+            result2 = jet.gen(1,6);
             console.info(result1+' et '+result2+' généré');
             db.insert(msg.member.user.username,'6',result1,null,ServerName);
             db.insert(msg.member.user.username,'6',result2,null,ServerName);
@@ -134,8 +136,8 @@ Client.on('message', msg => {
         case '!2d8':
             dice='2d8';
             console.info('2d8 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
-            let result1 = jet.gen(1,8);
-            let result2 = jet.gen(1,8);
+            result1 = jet.gen(1,8);
+            result2 = jet.gen(1,8);
             console.info(result1+' et '+result2+' généré');
             db.insert(msg.member.user.username,'8',result1,null,ServerName);
             db.insert(msg.member.user.username,'8',result2,null,ServerName);
