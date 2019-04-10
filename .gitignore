@@ -177,3 +177,4 @@ db/*
 *.db3
 
 # End of https://www.gitignore.io/api/node,webstorm
+*.db
