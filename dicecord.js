@@ -42,7 +42,7 @@ Client.on('message', msg => {
     //Ignore messages sent by the bot
     if (msg.author.bot) return;
 
-    if (msg.content === '!1d100') {
+    /*if (msg.content === '!1d100') {
         dice = '1d100';
         console.info('1d100 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
         resultat = jet.gen(1,100);
@@ -65,7 +65,7 @@ Client.on('message', msg => {
             msg.reply(dice+'='+resultat);
         };
     }
-    else if (msg.content.startsWith(prefix)) {
+    else */if (msg.content.startsWith(prefix)) {
             let msgUnprefix = msg.content.replace(prefix,'');
             console.log(msgUnprefix);
             if (reNumber.test(msgUnprefix)) {
@@ -78,10 +78,29 @@ Client.on('message', msg => {
                 for (let index = 0; index < number; index++) {
                     resultArray[index] = jet.gen(1,value);
                 }
-                resultArray.forEach(result => {
-                    console.info(result+' généré');
-                    db.insert(msg.member.user.username,value,result,null,ServerName);
-                });
+                if (value === 100) {
+                    resultArray.forEach(result => {
+                        if (result <=5) {
+                            console.info('réussite critique');
+                            db.insert(msg.member.user.username,'100',resultat,'reussite',ServerName);
+                            msg.reply(dice+'='+resultat+'\n'+jet.reussiteCritique())
+                        } else if (result >=95) {
+                            console.info('échec critique');
+                            db.insert(msg.member.user.username,'100',resultat,'echec',ServerName);
+                            msg.reply(dice+'='+resultat+'\n'+jet.echecCritique());
+                        } else if (resultat && (resultat === 42 || resultat === 69)) {
+                            db.insert(msg.member.user.username,'100',resultat,'mixte',ServerName);
+                            msg.reply(dice+'='+resultat+'\n'+jet.mixteCritique());
+                        }
+                        console.info(result+' généré');
+                        db.insert(msg.member.user.username,value,result,null,ServerName);
+                    });
+                }
+                else
+                    resultArray.forEach(result => {
+                        console.info(result+' généré');
+                        db.insert(msg.member.user.username,value,result,null,ServerName);
+                    });
                 msg.reply(dice+' = '+resultArray.toString());
             }
             else if (reText.test(msgUnprefix)) {
