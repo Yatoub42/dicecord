@@ -2,7 +2,6 @@
 //persos
 const jet = require('./lib/critique.js');
 const db = require('./lib/bdd.js');
-const cmd = require('./lib/command.js');
 //officielles
 const Discord = require('discord.js'); //npm install discord.js --save
 const program = require('commander'); //npm install commander --save
