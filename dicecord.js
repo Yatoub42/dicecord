@@ -7,10 +7,10 @@ const Discord = require('discord.js'); //npm install discord.js --save
 const program = require('commander'); //npm install commander --save
 const Sentry = require('@sentry/node');
 // Fichiers
-const Auth = require('./include/auth.priv.json');
+const Include = require('./include/resource.priv.json');
 // Instanciations
 const Client = new Discord.Client();
-Sentry.init({ dsn: Auth.sentry });
+Sentry.init({ dsn: Include.sentry });
 
 
 //variables
@@ -18,6 +18,7 @@ let dice;
 let resultat;
 let result1;
 let result2;
+let prefix = Include.prefix;
 
 // Validation de la connexion
 Client.on('ready', () => {
@@ -36,6 +37,36 @@ Client.on('message', msg => {
     const regex =/\W|_/g;
     let ServerName = msg.guild.name.replace(regex,"");
     db.createTable(ServerName);
+
+    //Ignore messages sent by the bot
+    if (msg.author.bot) return;
+
+    if (msg.content === '!1d100') {
+        dice = '1d100';
+        console.info('1d100 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
+        resultat = jet.gen(1,100);
+        console.info(resultat+' généré');
+        //resultat = 100
+        if (resultat <= 5) {
+          console.info('réussite critique');
+            db.insert(msg.member.user.username,'100',resultat,'reussite',ServerName);
+            msg.reply(dice+'='+resultat+'\n'+jet.reussiteCritique())
+        } else if (resultat >= 95) {
+          console.info('échec critique');
+            db.insert(msg.member.user.username,'100',resultat,'echec',ServerName);
+            msg.reply(dice+'='+resultat+'\n'+jet.echecCritique());
+        } else if (resultat && (resultat === 42 || resultat === 69)) {
+          console.info('critique mixte');
+            db.insert(msg.member.user.username,'100',resultat,'mixte',ServerName);
+            msg.reply(dice+'='+resultat+'\n'+jet.mixteCritique());
+        } else {
+            db.insert(msg.member.user.username,'100',resultat,null,ServerName);
+            msg.reply(dice+'='+resultat);
+        };
+    } else {
+
+    }
+
     switch (msg.content) {
         case '!1d100':
             dice = '1d100';
@@ -170,7 +201,7 @@ Client.on('message', msg => {
             }
             break;
 		case '!help':
-			msg.reply("Dicecord usage : !1d100 ; !1d10 ; !1d4 ; !1d6 ; !1d12 ; !1d20 ; !1d8 ; !1d3 ; !1d2\nLes dés 100 sont entre 0 et 99 ; les autres entre 1 et leur valeur");
+			msg.reply("Dicecord usage : !xdy (ex: !1d100) \nLes dés 100 sont entre 1 et leur valeur");
 			break;
 		case '!ping':
             console.info('Ping');
@@ -224,13 +255,13 @@ program
 
 // connexion du bot aux salons
 if (program.niven) {
-    Client.login(Auth.token1);
+    Client.login(Include.token1);
     Client.on("error", (e) => console.error(e));
 } else if (program.nyria) {
-    Client.login(Auth.token2);
+    Client.login(Include.token2);
     Client.on("error", (e) => console.error(e));    
 } else if (program.test) {
-    Client.login(Auth.tokenTest);
+    Client.login(Include.tokenTest);
     Client.on("error", (e) => console.error(e)); 
 }
 //Client.on("warn", (e) => console.warn(e));
