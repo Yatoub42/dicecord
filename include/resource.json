@@ -1,0 +1,7 @@
+{
+	"token1": "YOUR-TOKEN-HERE",
+	"token2": "YOUR_SECOND_TOKEN_HERE",
+	"token3": "YOUR_THIRD_TOKEN_HERE",
+	"sentry": "SENTRY_URL",
+	"prefix": "COMMAND_PREFIX"
+}
