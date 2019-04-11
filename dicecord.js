@@ -19,6 +19,7 @@ const reNumber = /[0-9]/g;
 const reText = /[a-z|A-Z]/g;
 const prefix = Include.prefix;
 
+var flag = 0;
 // Validation de la connexion
 Client.on('ready', () => {
   /*Client.user.setAvatar('./include/avatar.png')
@@ -35,7 +36,6 @@ db.createdb();
 Client.on('message', msg => {
     let ServerName = msg.guild.name.replace(reSpec,"");
     db.createTable(ServerName);
-
     //Ignore messages sent by the bot
     if (msg.author.bot) return;
 
