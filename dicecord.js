@@ -57,7 +57,7 @@ Client.on('message', msg => {
                     console.info('Alerte plus de 10 lancés');
                 }else if (dice == '1d100') {
                     console.info('1d100 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
-                    var resultat = jet.gen(1,100);
+                    var resultat = jet.gen(1,value);
                     console.info(resultat+' généré');
                     //resultat = 100
                     if (resultat <= 5) {
