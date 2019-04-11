@@ -13,13 +13,11 @@ const Client = new Discord.Client();
 Sentry.init({ dsn: Include.sentry });
 
 
-//variables
+//constantes
 const reSpec = /\W|_/g;
 const reNumber = /[0-9]/g;
 const reText = /[a-z|A-Z]/g;
-let dice;
-let resultat;
-let prefix = Include.prefix;
+const prefix = Include.prefix;
 
 // Validation de la connexion
 Client.on('ready', () => {
@@ -41,30 +39,7 @@ Client.on('message', msg => {
     //Ignore messages sent by the bot
     if (msg.author.bot) return;
 
-    /*if (msg.content === '!1d100') {
-        dice = '1d100';
-        console.info('1d100 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
-        resultat = jet.gen(1,100);
-        console.info(resultat+' généré');
-        //resultat = 100
-        if (resultat <= 5) {
-          console.info('réussite critique');
-            db.insert(msg.member.user.username,'100',resultat,'reussite',ServerName);
-            msg.reply(dice+'='+resultat+'\n'+jet.reussiteCritique())
-        } else if (resultat >= 95) {
-          console.info('échec critique');
-            db.insert(msg.member.user.username,'100',resultat,'echec',ServerName);
-            msg.reply(dice+'='+resultat+'\n'+jet.echecCritique());
-        } else if (resultat && (resultat === 42 || resultat === 69)) {
-          console.info('critique mixte');
-            db.insert(msg.member.user.username,'100',resultat,'mixte',ServerName);
-            msg.reply(dice+'='+resultat+'\n'+jet.mixteCritique());
-        } else {
-            db.insert(msg.member.user.username,'100',resultat,null,ServerName);
-            msg.reply(dice+'='+resultat);
-        };
-    }
-    else */if (msg.content.startsWith(prefix)) {
+    if (msg.content.startsWith(prefix)) {
             let msgUnprefix = msg.content.replace(prefix,'');
             console.log(msgUnprefix);
             if (reNumber.test(msgUnprefix)) {
@@ -72,40 +47,51 @@ Client.on('message', msg => {
                 var number = arrayCommand[0];
                 var value = arrayCommand[1];
                 var resultArray = [];
-                dice = number+'d'+value;
+                var dice = number+'d'+value;
                 console.info(dice+' demandé par '+msg.member.user.username+' sur '+msg.guild.name);
-                for (let index = 0; index < number; index++) {
-                    resultArray[index] = jet.gen(1,value);
-                }
-                if (value === 100) {
+                if (value == 100 && number > 1) {
+                    msg.reply("C'est mieux de demander les d100 un par un, je ne suis qu'un petit bot");
+                    console.info('Alerte xd100');
+                }else if (number > 10) {
+                    msg.reply("C'est pas tout a fait normal de demander plus de 10 jet d'un coup, tu veut que je meurt c'est ça ?");
+                    console.info('Alerte plus de 10 lancés');
+                }else if (dice == '1d100') {
+                    console.info('1d100 demandé par '+msg.member.user.username+' sur '+msg.guild.name);
+                    var resultat = jet.gen(1,100);
+                    console.info(resultat+' généré');
+                    //resultat = 100
+                    if (resultat <= 5) {
+                    console.info('réussite critique');
+                        db.insert(msg.member.user.username,'100',resultat,'reussite',ServerName);
+                        msg.reply(dice+'='+resultat+'\n'+jet.reussiteCritique())
+                    } else if (resultat >= 95) {
+                    console.info('échec critique');
+                        db.insert(msg.member.user.username,'100',resultat,'echec',ServerName);
+                        msg.reply(dice+'='+resultat+'\n'+jet.echecCritique());
+                    } else if (resultat && (resultat === 42 || resultat === 69)) {
+                    console.info('critique mixte');
+                        db.insert(msg.member.user.username,'100',resultat,'mixte',ServerName);
+                        msg.reply(dice+'='+resultat+'\n'+jet.mixteCritique());
+                    } else {
+                        db.insert(msg.member.user.username,'100',resultat,null,ServerName);
+                        msg.reply(dice+'='+resultat);
+                    };
+                }             
+                else{
+                    for (let index = 0; index < number; index++) {
+                        resultArray[index] = jet.gen(1,value);
+                    }
                     resultArray.forEach(result => {
-                        if (result <=5) {
-                            console.info('réussite critique');
-                            db.insert(msg.member.user.username,'100',resultat,'reussite',ServerName);
-                            msg.reply(dice+'='+resultat+'\n'+jet.reussiteCritique())
-                        } else if (result >=95) {
-                            console.info('échec critique');
-                            db.insert(msg.member.user.username,'100',resultat,'echec',ServerName);
-                            msg.reply(dice+'='+resultat+'\n'+jet.echecCritique());
-                        } else if (resultat && (resultat === 42 || resultat === 69)) {
-                            db.insert(msg.member.user.username,'100',resultat,'mixte',ServerName);
-                            msg.reply(dice+'='+resultat+'\n'+jet.mixteCritique());
-                        }
                         console.info(result+' généré');
                         db.insert(msg.member.user.username,value,result,null,ServerName);
                     });
+                    msg.reply(dice+' = '+resultArray.toString());
                 }
-                else
-                    resultArray.forEach(result => {
-                        console.info(result+' généré');
-                        db.insert(msg.member.user.username,value,result,null,ServerName);
-                    });
-                msg.reply(dice+' = '+resultArray.toString());
             }
             else if (reText.test(msgUnprefix)) {
                 switch (msgUnprefix){
                     case 'help':
-                        msg.reply("Dicecord usage : !xdy (ex: !1d100 ou !3d4) \nLes dés sont entre 1 et leur valeur");
+                        msg.reply("Dicecord usage : !xdy (ex: !1d100 ou !4d6) \nLes dés sont entre 1 et leur valeur");
                         break;
                     case 'ping':
                         console.info('Ping');
@@ -134,6 +120,8 @@ Client.on('message', msg => {
                         //db.creaTable();
                         console.info('StatsAll demandé par '+msg.member.user.username+' sur '+msg.guild.name);
                         let topTier= db.statAll(ServerName);
+                        console.info(topTier.toString())
+                        console.info(topTier)
                         let top_user0 = topTier[0].USER;
                         let top_count0 = topTier[0].COUNT;
                         let top_user1 = topTier[1].USER;
