@@ -18,8 +18,6 @@ const reSpec = /\W|_/g;
 const reNumber = /[0-9]/g;
 const reText = /[a-z|A-Z]/g;
 const prefix = Include.prefix;
-
-var flag = 0;
 // Validation de la connexion
 Client.on('ready', () => {
   /*Client.user.setAvatar('./include/avatar.png')
@@ -120,20 +118,17 @@ Client.on('message', msg => {
                         //db.creaTable();
                         console.info('StatsAll demandé par '+msg.member.user.username+' sur '+msg.guild.name);
                         let topTier= db.statAll(ServerName);
-                        console.info(topTier.toString())
-                        console.info(topTier)
-                        let top_user0 = topTier[0].USER;
-                        let top_count0 = topTier[0].COUNT;
-                        let top_user1 = topTier[1].USER;
-                        let top_count1 = topTier[1].COUNT;
-                        let top_user2 = topTier[2].USER;
-                        let top_count2 = topTier[2].COUNT;
-                        msg.reply('\nTu veux des stats ?'+
-                            '\n'+"Alors accroche toi bien, c'est partit pour le top 3 des joueurs les plus actifs du serveur "+msg.guild.name+' :'+
-                            '\n'+'1 - '+top_user0+' avec '+top_count0+' lancés !!'+
-                            '\n'+'2 - '+top_user1+' avec '+top_count1+' lancés !!'+
-                            '\n'+'3 - '+top_user2+' avec '+top_count2+' lancés !!'+
-                            '\n'+'Tu as intérêt a faire rouler tes dés coco si tu veux être dans mon classement !!');
+                        if (topTier.length == 3) {
+                            msg.reply('\nTu veux des stats ?'+
+                                '\n'+"Alors accroche toi bien, c'est partit pour le top 3 des joueurs les plus actifs du serveur "+msg.guild.name+' :'+
+                                '\n'+'1 - '+topTier[0].USER+' avec '+topTier[0].COUNT+' lancés !!'+
+                                '\n'+'2 - '+topTier[1].USER+' avec '+topTier[1].COUNT+' lancés !!'+
+                                '\n'+'3 - '+topTier[2].USER+' avec '+topTier[2].COUNT+' lancés !!'+
+                                '\n'+'Tu as intérêt a faire rouler tes dés coco si tu veux être dans mon classement !!');
+                        } else {
+                            msg.reply("Il n'y a pas eu suffisament de lancés pour sortir un top 3");
+                            console.info('Alerte pas assez de joueur');
+                        }
                     break;
                 }
             }
