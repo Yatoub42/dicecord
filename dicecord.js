@@ -55,6 +55,9 @@ Client.on('message', msg => {
             } else if (number > 10) {
                 msg.reply("C'est pas tout a fait normal de demander plus de 10 jet d'un coup, tu veut que je meurt c'est ça ?");
                 console.info('Alerte plus de 10 lancés');
+            } else if (value > 100) {
+                msg.reply("Je n'ai jamait vu de d"+value+" et pourtant j'en ai vu passer");
+                console.info('Alerte d supérieur 100');
             } else if (dice == '1d100') {
                 console.info('1d100 demandé par ' + msg.member.user.username + ' sur ' + msg.guild.name);
                 var resultat = jet.gen(1, value);
