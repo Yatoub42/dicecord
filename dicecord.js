@@ -16,7 +16,7 @@ Sentry.init({
 });
 
 
-//constantes
+//regex
 const reSpec = /\W|_/g;
 const reNumber = /[0-9]/g;
 const reText = /[a-z|A-Z]/g;
@@ -153,13 +153,13 @@ program
 // connexion du bot aux salons
 if (program.niven) {
     Client.login(Include.token1);
-    Client.on("error", (e) => console.error(e));
+    Client.on("error", (error) => console.error(new moment().format('YYYY-MM-DD HH:mm:ss'), error));
 } else if (program.nyria) {
     Client.login(Include.token2);
-    Client.on("error", (e) => console.error(e));
+    Client.on("error", (error) => console.error(new moment().format('YYYY-MM-DD HH:mm:ss'), error));
 } else if (program.test) {
     Client.login(Include.tokenTest);
-    Client.on("error", (e) => console.error(e));
+    Client.on("error", (error) => console.error(new moment().format('YYYY-MM-DD HH:mm:ss'), error));
 }
 //Client.on("warn", (e) => console.warn(e));
 //Client.on("debug", (e) => console.info(e));
