@@ -6,6 +6,7 @@ const db = require('./lib/bdd.js');
 const Discord = require('discord.js'); //npm install discord.js --save
 const program = require('commander'); //npm install commander --save
 const Sentry = require('@sentry/node');
+const moment = require('moment');
 // Fichiers
 const Include = require('./include/resource.priv.json');
 // Instanciation
@@ -27,7 +28,7 @@ Client.on('ready', () => {
     .catch(console.error());*/
     Client.user.setActivity('vous juger !');
     console.info('Bot Connected');
-});
+}, error => console.error(new moment().format('YYYY-MM-DD HH:mm:ss'), error));
 
 //Création de la bdd
 db.createdb();
@@ -41,7 +42,7 @@ Client.on('message', msg => {
 
     if (msg.content.startsWith(prefix)) {
         let msgUnprefix = msg.content.replace(prefix, '');
-        console.log(msgUnprefix);
+        console.info(msgUnprefix);
         if (reNumber.test(msgUnprefix)) {
             let arrayCommand = msgUnprefix.split('d');
             var number = arrayCommand[0];
@@ -53,13 +54,13 @@ Client.on('message', msg => {
                 msg.reply("C'est mieux de demander les d100 un par un, je ne suis qu'un petit bot");
                 console.info('Alerte xd100');
             } else if (number < 1) {
-                msg.reply(number+" lancés ? Tu es sérieux ?");
+                msg.reply(number + " lancés ? Tu es sérieux ?");
                 console.info('Alerte 0d');
             } else if (number > 10) {
                 msg.reply("C'est pas tout a fait normal de demander plus de 10 jet d'un coup, tu veut que je meurt c'est ça ?");
                 console.info('Alerte plus de 10 lancés');
             } else if (value > 100 || value < 1) {
-                msg.reply("Je n'ai jamait vu de d"+value+" et pourtant j'en ai vu passer");
+                msg.reply("Je n'ai jamait vu de d" + value + " et pourtant j'en ai vu passer");
                 console.info('Alerte d absurde');
             } else if (dice == '1d100') {
                 console.info('1d100 demandé par ' + msg.member.user.username + ' sur ' + msg.guild.name);
@@ -139,7 +140,8 @@ Client.on('message', msg => {
             }
         }
     }
-});
+
+}, error => console.error(new moment().format('YYYY-MM-DD HH:mm:ss'), error));
 
 //Arguments de lancement
 program
