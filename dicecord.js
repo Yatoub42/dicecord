@@ -63,7 +63,6 @@ Client.on('message', msg => {
                 msg.reply("Je n'ai jamait vu de d" + value + " et pourtant j'en ai vu passer");
                 console.info('Alerte d absurde');
             } else if (dice == '1d100') {
-                console.info('1d100 demandé par ' + msg.member.user.username + ' sur ' + msg.guild.name);
                 var resultat = jet.gen(1, value);
                 console.info(resultat + ' généré');
                 //resultat = 100
