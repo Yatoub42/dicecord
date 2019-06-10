@@ -38,16 +38,17 @@ Client.on('message', msg => {
     if (msg.content.startsWith(prefix)) {
         var msgUnprefix = msg.content.replace(prefix, '');
     }
-    /*if (parseInt(msgUnprefix)) {
+    console.info('message= '+msgUnprefix);
+    if (parseInt(msgUnprefix)) {
         msg.reply(message.gestionDe(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
     }else
-    msg.reply(message.gestionDe(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
-*/
-    if (reText.test(msgUnprefix)) {
+    msg.reply(message.gestionText(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
+
+    /*if (reText.test(msgUnprefix)) {
         msg.reply(message.gestionText(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
     }else if (reNumber.test(msgUnprefix)) {
         msg.reply(message.gestionDe(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
-    }
+    }*/
 
     //msg.reply(message.gestionDe(msg.content,msg.member.user.username,msg.guild.name,ServerName));
 });
