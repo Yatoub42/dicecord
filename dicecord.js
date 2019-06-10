@@ -36,7 +36,7 @@ Client.on('message', msg => {
     //Ignore messages sent by the bot
     if (msg.author.bot) return;
     if (msg.content.startsWith(prefix)) {
-        let msgUnprefix = msg.content.replace(prefix, '');
+        var msgUnprefix = msg.content.replace(prefix, '');
     }
     if (reText.test(msgUnprefix)) {
         msg.reply(message.gestionDe(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
