@@ -11,6 +11,12 @@ const Auth = require('./include/resource.priv.json');
 // Instanciations
 const Client = new Discord.Client();
 
+//regex
+const reSpec = /\W|_/g;
+const reNumber = /[0-9]/g;
+const reText = /[a-z|A-Z]/g;
+const prefix = Include.prefix;
+
 // Validation de la connexion
 Client.on('ready', () => {
   /*Client.user.setAvatar('./include/avatar.png')
@@ -25,10 +31,20 @@ db.createdb();
 
 // Commandes et réponses
 Client.on('message', msg => {
-    const regex =/\W|_/g;
-    let ServerName = msg.guild.name.replace(regex,"");
+    let ServerName = msg.guild.name.replace(reSpec,"");
     db.createTable(ServerName);
-    msg.reply(message.gestion(msg.content,msg.member.user.username,msg.guild.name,ServerName));
+    //Ignore messages sent by the bot
+    if (msg.author.bot) return;
+    if (msg.content.startsWith(prefix)) {
+        let msgUnprefix = msg.content.replace(prefix, '');
+    }
+    if (reText.test(msgUnprefix)) {
+        msg.reply(message.gestionDe(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
+    }else if (reNumber.test(msgUnprefix)) {
+        msg.reply(message.gestionDe(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
+    }
+
+    //msg.reply(message.gestionDe(msg.content,msg.member.user.username,msg.guild.name,ServerName));
 });
 
 //Arguments de lancement
