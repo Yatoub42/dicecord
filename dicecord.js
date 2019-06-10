@@ -7,7 +7,7 @@ const message = require('./lib/message.js');
 const Discord = require('discord.js'); //npm install discord.js --save
 const program = require('commander'); //npm install commander --save
 // Fichiers
-const Auth = require('./include/resource.priv.json');
+const Include = require('./include/resource.priv.json');
 // Instanciations
 const Client = new Discord.Client();
 
@@ -56,13 +56,13 @@ program
 
 // connexion du bot aux salons
 if (program.niven) {
-    Client.login(Auth.token1);
+    Client.login(Include.token1);
     Client.on("error", (e) => console.error(e));
 } else if (program.nyria) {
-    Client.login(Auth.token2);
+    Client.login(Include.token2);
     Client.on("error", (e) => console.error(e));    
 } else if (program.test) {
-    Client.login(Auth.tokenTest);
+    Client.login(Include.tokenTest);
     Client.on("error", (e) => console.error(e)); 
 }
 //Client.on("warn", (e) => console.warn(e));
