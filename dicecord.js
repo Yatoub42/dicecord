@@ -7,7 +7,7 @@ const message = require('./lib/message.js');
 const Discord = require('discord.js'); //npm install discord.js --save
 const program = require('commander'); //npm install commander --save
 // Fichiers
-const Auth = require('./include/auth.priv.json');
+const Auth = require('./include/resource.priv.json');
 // Instanciations
 const Client = new Discord.Client();
 
