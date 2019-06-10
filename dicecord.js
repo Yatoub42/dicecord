@@ -38,8 +38,13 @@ Client.on('message', msg => {
     if (msg.content.startsWith(prefix)) {
         var msgUnprefix = msg.content.replace(prefix, '');
     }
-    if (reText.test(msgUnprefix)) {
+    /*if (parseInt(msgUnprefix)) {
         msg.reply(message.gestionDe(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
+    }else
+    msg.reply(message.gestionDe(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
+*/
+    if (reText.test(msgUnprefix)) {
+        msg.reply(message.gestionText(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
     }else if (reNumber.test(msgUnprefix)) {
         msg.reply(message.gestionDe(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
     }
