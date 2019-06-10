@@ -39,15 +39,11 @@ Client.on('message', msg => {
     //gestion du préfixe de commande
     if (msg.content.startsWith(prefix)) {
         var msgUnprefix = msg.content.replace(prefix, '');
-    }
-    //test présence de nombre
-    if (parseInt(msgUnprefix)) {
-        if (msg.content.startsWith(prefix)) {
+        //test présence de nombre
+        if (parseInt(msgUnprefix)) {
             msg.reply(message.gestionDe(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
-        }
-    } //sinon c'est que du texte
-    else if (msg.content.startsWith(prefix)) {
-        msg.reply(message.gestionText(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
+        } //sinon c'est que du texte
+        else msg.reply(message.gestionText(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
     }
 });
 
