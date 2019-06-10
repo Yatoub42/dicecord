@@ -43,7 +43,9 @@ Client.on('message', msg => {
     console.info('message = '+msgUnprefix);
     //test présence de nombre
     if (parseInt(msgUnprefix)) {
-        msg.reply(message.gestionDe(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
+        if (msg.content.startsWith(prefix)) {
+            msg.reply(message.gestionDe(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
+        }
     } //sinon c'est que du texte
     else if (msg.content.startsWith(prefix)) {
         msg.reply(message.gestionText(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
