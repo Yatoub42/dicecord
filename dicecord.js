@@ -1,20 +1,21 @@
 // Libraries
 //persos
-//const jet = require('./lib/critique.js');
 const db = require('./lib/bdd.js');
 const message = require('./lib/message.js');
 //officielles
 const Discord = require('discord.js'); //npm install discord.js --save
-const program = require('commander'); //npm install commander --save
+const instance = require('commander'); //npm install commander --save
+const Sentry = require('@sentry/node');
 // Fichiers
 const Include = require('./include/resource.priv.json');
 // Instanciations
 const Client = new Discord.Client();
+Sentry.init({
+    dsn: Include.sentry
+});
 
 //regex
 const reSpec = /\W|_/g;
-const reNumber = /[0-9]/g;
-const reText = /[a-z|A-Z]/g;
 const prefix = Include.prefix;
 
 // Validation de la connexion
@@ -35,39 +36,33 @@ Client.on('message', msg => {
     db.createTable(ServerName);
     //Ignore messages sent by the bot
     if (msg.author.bot) return;
+    //gestion du préfixe de commande
     if (msg.content.startsWith(prefix)) {
         var msgUnprefix = msg.content.replace(prefix, '');
     }
-    console.info('message= '+msgUnprefix);
+    console.info('message = '+msgUnprefix);
+    //test présence de nombre
     if (parseInt(msgUnprefix)) {
         msg.reply(message.gestionDe(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
-    }else
-    msg.reply(message.gestionText(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
-
-    /*if (reText.test(msgUnprefix)) {
-        msg.reply(message.gestionText(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
-    }else if (reNumber.test(msgUnprefix)) {
-        msg.reply(message.gestionDe(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
-    }*/
-
-    //msg.reply(message.gestionDe(msg.content,msg.member.user.username,msg.guild.name,ServerName));
+    } //sinon c'est que du texte
+    else msg.reply(message.gestionText(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
 });
 
 //Arguments de lancement
-program
+instance
   .option('--nyria', 'Nyria')
   .option('--niven', 'Niven')
   .option('--test', 'Test')
   .parse(process.argv);
 
 // connexion du bot aux salons
-if (program.niven) {
+if (instance.niven) {
     Client.login(Include.token1);
     Client.on("error", (e) => console.error(e));
-} else if (program.nyria) {
+} else if (instance.nyria) {
     Client.login(Include.token2);
     Client.on("error", (e) => console.error(e));    
-} else if (program.test) {
+} else if (instance.test) {
     Client.login(Include.tokenTest);
     Client.on("error", (e) => console.error(e)); 
 }
