@@ -45,7 +45,9 @@ Client.on('message', msg => {
     if (parseInt(msgUnprefix)) {
         msg.reply(message.gestionDe(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
     } //sinon c'est que du texte
-    else msg.reply(message.gestionText(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
+    else if (msg.content.startsWith(prefix)) {
+        msg.reply(message.gestionText(msgUnprefix,msg.member.user.username,msg.guild.name,ServerName));
+    }
 });
 
 //Arguments de lancement
