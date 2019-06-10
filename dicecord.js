@@ -40,7 +40,6 @@ Client.on('message', msg => {
     if (msg.content.startsWith(prefix)) {
         var msgUnprefix = msg.content.replace(prefix, '');
     }
-    console.info('message = '+msgUnprefix);
     //test présence de nombre
     if (parseInt(msgUnprefix)) {
         if (msg.content.startsWith(prefix)) {
