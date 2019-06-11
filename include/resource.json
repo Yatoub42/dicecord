@@ -3,5 +3,9 @@
 	"token2": "YOUR_SECOND_TOKEN_HERE",
 	"token3": "YOUR_THIRD_TOKEN_HERE",
 	"sentry": "SENTRY_URL",
-	"prefix": "COMMAND_PREFIX"
+	"prefix": "COMMAND_PREFIX",
+	"borneReussite": "SUCCESS_LIMIT",
+	"borneEchec": "FAIL_LIMIT",
+	"context1": "SPECIAL_LIMIT_1",
+	"context2": "SPECIAL_LIMIT_2"
 }
