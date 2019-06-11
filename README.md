@@ -45,6 +45,10 @@ Il existe de nombreux excellents générateurs de dés disponibles sur GitHub. C
 
 * [NodeJS](https://nodejs.org/en/about/)
 * [discord.js](https://discord.js.org/#/)
+* [moment.js](https://momentjs.com/)
+* [chance.js](https://chancejs.com/)
+* [better-sqlite3](https://www.npmjs.com/package/better-sqlite3)
+* [commander.js](https://github.com/tj/commander.js/)
 
 ----
 
