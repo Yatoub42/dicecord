@@ -65,7 +65,7 @@ npm install npm@latest -g
 
 1. Cloner le repo
 ```sh
-git clone https:://github.com/your_username_/Project-Name.git
+git clone https://github.com/Yatoub42/dicecord.git
 ```
 2. Installer les dépendences
 ```sh
