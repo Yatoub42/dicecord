@@ -110,8 +110,6 @@ Les contributions sont ce qui fait de la communauté open source un endroit auss
 <!-- REMERCIEMENTS -->
 ## Remerciements
 
-1. <div>Icône de README fait par <a href="https://www.flaticon.com/authors/dimi-kazak" title="Dimi Kazak">Dimi Kazak</a> de <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> sous license <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-
 
 ----
 <!-- LICENSE -->
