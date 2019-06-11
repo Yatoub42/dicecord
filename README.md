@@ -15,7 +15,7 @@
 ![GitHub Logo](include/logo.png)   
 Générateur de dés en NodeJS pour Discord  
 [Voir les sources »](https://github.com/Yatoub42/dicecord)   
-[Un bug ?](https://github.com/Yatoub42/dicecord/issues) [Une nouvelle fonctionnalité ?](https://github.com/Yatoub42/dicecord/issues)
+[Un bug ? Une nouvelle fonctionnalité ?](https://github.com/Yatoub42/dicecord/issues)
 
 
 <!-- TABLE OF CONTENTS -->
@@ -29,7 +29,6 @@ Générateur de dés en NodeJS pour Discord
   - [Installation](#installation)
 - [Utilisation](#utilisation)
 - [Contributions](#contributions)
-- [Remerciements](#remerciements)
 - [License](#license)
 - [Contact](#contact)
 
@@ -38,7 +37,7 @@ Générateur de dés en NodeJS pour Discord
 <!-- ABOUT THE PROJECT -->
 ## A Propos
 
-Il existe de nombreux excellents modèles de générateurs de dés disponibles sur GitHub et ou npm. Cependant, nous n'en avons trouvé aucun qui corresponde vraiment à nos besoins et en avons donc créé un amélioré. Nous avons essayé de créer un bot de génération de dés tellement incroyable que ce sera le dernier dont vous aurez besoin.
+Il existe de nombreux excellents générateurs de dés disponibles sur GitHub. Cependant, nous n'en avons trouvé aucun qui corresponde vraiment à nos besoins et en avons donc créé un de toute pièce. Nous avons essayé de créer un bot de génération de dés tellement incroyable que ce sera le dernier dont vous aurez besoin.
 
 ----
 
@@ -105,11 +104,6 @@ Les contributions sont ce qui fait de la communauté open source un endroit auss
 3. Commiter les modifications (`git commit -m 'Add some AmazingFeature`)
 4. Pusher vers la branche (`git push origin feature/AmazingFeature`)
 5. Ouvrir une Pull Request
-
-----
-<!-- REMERCIEMENTS -->
-## Remerciements
-
 
 ----
 <!-- LICENSE -->
