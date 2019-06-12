@@ -3,7 +3,11 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/Yatoub42/dicecord.svg?style=flat-square)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/Yatoub42/dicecord.svg?style=flat-square)
 ![GitHub](https://img.shields.io/github/license/Yatoub42/dicecord.svg?style=flat-square)
-![GitHub top language](https://img.shields.io/github/languages/top/Yatoub42/dicecord.svg?style=flat-square)   
+![GitHub top language](https://img.shields.io/github/languages/top/Yatoub42/dicecord.svg?style=flat-square)
+
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Yatoub42_dicecord&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Yatoub42_dicecord)
+[![Known Vulnerabilities](https://snyk.io/test/github/Yatoub42/dicecord/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Yatoub42/dicecord?targetFile=package.json)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Yatoub42_dicecord&metric=alert_status)](https://sonarcloud.io/dashboard?id=Yatoub42_dicecord)   
 
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Yatoub42/dicecord/discord.js.svg?style=flat-square)
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Yatoub42/dicecord/better-sqlite3.svg?style=flat-square)
