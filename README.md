@@ -63,9 +63,10 @@ Pour obtenir une copie locale en cours d’exécution, suivez ces étapes.
 
 ### Prérequis
 
+* nodeJS
 * npm
 ```sh
-npm install npm@latest -g
+apt-get install nodejs npm
 ```
 
 ### Installation
@@ -76,7 +77,7 @@ git clone https://github.com/Yatoub42/dicecord.git
 ```
 2. Installer les dépendences
 ```sh
-npm install
+npm i
 ```
 3. Mettre en place le fichier de configuration
 ```sh
@@ -90,7 +91,7 @@ cp include/resource.json include/resource.priv.json
 ```
 5. Lancer l'instance du programme
 ```sh
-node discord.js --test
+node dicecord.js --test
 ```
 
 ----
