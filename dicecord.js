@@ -21,10 +21,10 @@ const prefix = Include.prefix;
 // Validation de la connexion
 Client.on("ready", () => {
   /*Client.user.setAvatar("./include/avatar.png")
-  .then(user => console.info(`Avatar setté !`))
-  .catch(console.error());*/
+  .then(user => Console.info(`Avatar setté !`))
+  .catch(Console.error());*/
   Client.user.setActivity("vous juger !");
-  console.info("Bot Connected");
+  Console.info("Bot Connected");
 });
 
 //Création de la bdd
@@ -61,13 +61,13 @@ instance
 // connexion du bot aux salons
 if (instance.niven) {
     Client.login(Include.token1);
-    Client.on("error", (e) => console.error(e));
+    Client.on("error", (e) => Console.error(e));
 } else if (instance.nyria) {
     Client.login(Include.token2);
-    Client.on("error", (e) => console.error(e));    
+    Client.on("error", (e) => Console.error(e));    
 } else if (instance.test) {
     Client.login(Include.tokenTest);
-    Client.on("error", (e) => console.error(e)); 
+    Client.on("error", (e) => Console.error(e)); 
 }
-//Client.on("warn", (e) => console.warn(e));
-//Client.on("debug", (e) => console.info(e));
+//Client.on("warn", (e) => Console.warn(e));
+//Client.on("debug", (e) => Console.info(e));
