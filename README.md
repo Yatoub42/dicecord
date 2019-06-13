@@ -6,7 +6,8 @@
 
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Yatoub42_dicecord&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Yatoub42_dicecord)
 [![Known Vulnerabilities](https://snyk.io/test/github/Yatoub42/dicecord/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Yatoub42/dicecord?targetFile=package.json)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Yatoub42_dicecord&metric=alert_status)](https://sonarcloud.io/dashboard?id=Yatoub42_dicecord)  
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Yatoub42_dicecord&metric=alert_status)](https://sonarcloud.io/dashboard?id=Yatoub42_dicecord)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a618051850ac45279a004c69b0e3e400)](https://www.codacy.com/app/Yatoub42/dicecord?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Yatoub42/dicecord&amp;utm_campaign=Badge_Grade)  
 
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Yatoub42/dicecord/discord.js.svg?style=flat-square)
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Yatoub42/dicecord/better-sqlite3.svg?style=flat-square)
