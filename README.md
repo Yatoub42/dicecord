@@ -39,99 +39,98 @@ Générateur de dés en NodeJS pour Discord
 <!-- ABOUT THE PROJECT -->
 ## A Propos
 
-Il existe de nombreux excellents générateurs de dés disponibles sur GitHub. Cependant, nous n'en avons trouvé aucun qui corresponde vraiment à nos besoins et en avons donc créé un de toute pièce. Nous avons essayé de créer un bot de génération de dés tellement incroyable que ce sera le dernier dont vous aurez besoin.
+ Il existe de nombreux excellents générateurs de dés disponibles sur GitHub. Cependant, nous n'en avons trouvé aucun qui corresponde vraiment à nos besoins et en avons donc créé un de toute pièce. Nous avons essayé de créer un bot de génération de dés tellement incroyable que ce sera le dernier dont vous aurez besoin.
 
 ----
 
 ### Créé avec
 
-* [NodeJS](https://nodejs.org/en/about/)  
-* [discord.js](https://discord.js.org/#/)  
-* [moment.js](https://momentjs.com/)  
-* [chance.js](https://chancejs.com/)  
-* [better-sqlite3](https://www.npmjs.com/package/better-sqlite3)  
-* [commander.js](https://github.com/tj/commander.js/)  
+- [NodeJS](https://nodejs.org/en/about/)  
+- [discord.js](https://discord.js.org/#/)  
+- [moment.js](https://momentjs.com/)  
+- [chance.js](https://chancejs.com/)  
+- [better-sqlite3](https://www.npmjs.com/package/better-sqlite3)  
+- [commander.js](https://github.com/tj/commander.js/)  
 
 ----
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Pour obtenir une copie locale en cours d’exécution, suivez ces étapes.
+ Pour obtenir une copie locale en cours d’exécution, suivez ces étapes.
 
 ### Prérequis
 
-nodeJS et npm
+ nodeJS et npm
 
-```sh
-apt-get install nodejs npm
-```
+ ``` sh
+ apt-get install nodejs npm
+ ```
 
 ### Installation
 
-1. Cloner le repo  
+ 1. Cloner le repo  
 
- ```sh
- git clone https://github.com/Yatoub42/dicecord.git
- ```
+  ``` sh
+  git clone https://github.com/Yatoub42/dicecord.git
+  ```
 
-2. Installer les dépendences  
+ 2. Installer les dépendences  
 
- ```sh
- npm i
- ```
+  ``` sh
+  npm i
+  ```
 
-3. Mettre en place le fichier de configuration  
+ 3. Mettre en place le fichier de configuration  
 
- ```sh
- cp include/resource.json include/resource.priv.json
- ```
+  ``` sh
+  cp include/resource.json include/resource.priv.json
+  ```
 
-4. Entrez les paramètres dans `resource.priv.json`  
+ 4. Entrez les paramètres dans `resource.priv.json`  
 
- ```json
- {
-   "token1": "YOUR-TOKEN-HERE",
- }
- ```
+  ``` json
+  {
+    "token1": "YOUR-TOKEN-HERE",
+  }
+  ```
 
-5. Lancer l'instance du programme  
+ 5. Lancer l'instance du programme  
 
- ```sh
- node dicecord.js --test
- ```
+  ``` sh
+  node dicecord.js --test
+  ```
 
 ----
 
 <!-- USAGE EXAMPLES -->
 ## Utilisation
 
-Nous conseillons l'utilistion de [PM2](https://pm2.io/doc/en/runtime/overview/) pour la gestion automatisée des instances de l'application.  
-Une fois le bot connecté à un salon Discord, l'interaction se fait avec des commandes préfixés par le préfixe configuré.  
+ Nous conseillons l'utilistion de [PM2](https://pm2.io/doc/en/runtime/overview/) pour la gestion automatisée des instances de l'application.  
+ Une fois le bot connecté à un salon Discord, l'interaction se fait avec des commandes préfixés par le préfixe configuré.  
 
 ----
 <!-- CONTRIBUTING -->
 ## Contributions
 
-Les contributions sont ce qui fait de la communauté open source un endroit aussi incroyable pour apprendre, inspirer et créer. Toutes les contributions que vous faites sont **grandement appréciées**.
+ Les contributions sont ce qui fait de la communauté open source un endroit aussi incroyable pour apprendre, inspirer et créer. Toutes les contributions que vous faites sont **grandement appréciées**.
 
-1. Forker le projet  
-2. Créez votre branche de fonctionnalités (`git checkout -b feature/AmazingFeature`)  
-3. Commiter les modifications (`git commit -m 'Add some AmazingFeature`)  
-4. Pusher vers la branche (`git push origin feature/AmazingFeature`)  
-5. Ouvrir une Pull Request  
+ 1. Forker le projet  
+ 2. Créez votre branche de fonctionnalités (`git checkout -b feature/AmazingFeature`)  
+ 3. Commiter les modifications (`git commit -m 'Add some AmazingFeature`)  
+ 4. Pusher vers la branche (`git push origin feature/AmazingFeature`)  
+ 5. Ouvrir une Pull Request  
 
 ----
 <!-- LICENSE -->
 ## License
 
-Distribué sous la licence MIT. Voir `LICENCE` pour plus d'informations.  
-
+ Distribué sous la licence MIT. Voir `LICENCE` pour plus d'informations.  
 
 ----
 <!-- CONTACT -->
 ## Contact
 
-[Yatoub42](https://github.com/Yatoub42)
+ [Yatoub42](https://github.com/Yatoub42)
 
 ----
