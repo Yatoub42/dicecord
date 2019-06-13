@@ -4,6 +4,7 @@
 ![GitHub](https://img.shields.io/github/license/Yatoub42/dicecord.svg?style=flat-square)
 ![GitHub top language](https://img.shields.io/github/languages/top/Yatoub42/dicecord.svg?style=flat-square)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/84f364f65fb54cf1837c1ae08c806ece)](https://app.codacy.com/app/Yatoub42/dicecord?utm_source=github.com&utm_medium=referral&utm_content=Yatoub42/dicecord&utm_campaign=Badge_Grade_Dashboard)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Yatoub42_dicecord&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Yatoub42_dicecord)
 [![Known Vulnerabilities](https://snyk.io/test/github/Yatoub42/dicecord/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Yatoub42/dicecord?targetFile=package.json)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Yatoub42_dicecord&metric=alert_status)](https://sonarcloud.io/dashboard?id=Yatoub42_dicecord)  
