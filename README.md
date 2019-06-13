@@ -6,6 +6,7 @@
 
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Yatoub42_dicecord&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Yatoub42_dicecord)
 [![Known Vulnerabilities](https://snyk.io/test/github/Yatoub42/dicecord/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Yatoub42/dicecord?targetFile=package.json)
+[![DeepScan grade](https://deepscan.io/api/teams/4033/projects/5839/branches/46510/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=4033&pid=5839&bid=46510)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Yatoub42_dicecord&metric=alert_status)](https://sonarcloud.io/dashboard?id=Yatoub42_dicecord)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a618051850ac45279a004c69b0e3e400)](https://www.codacy.com/app/Yatoub42/dicecord?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Yatoub42/dicecord&amp;utm_campaign=Badge_Grade)  
 
