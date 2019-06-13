@@ -31,7 +31,7 @@ Client.on("ready", () => {
 db.createdb();
 
 // Commandes et réponses
-Client.on("message", msg => {
+Client.on("message", (msg) => {
     let ServerName = msg.guild.name.replace(reSpec,"");
     db.createTable(ServerName);
     //Ignore messages sent by the bot
