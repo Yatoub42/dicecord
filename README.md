@@ -69,25 +69,25 @@ Générateur de dés en NodeJS pour Discord
 
 ### Installation
 
- 1. Cloner le repo  
+1. Cloner le repo  
 
   ``` sh
   git clone https://github.com/Yatoub42/dicecord.git
   ```
 
- 2. Installer les dépendences  
+2. Installer les dépendences  
 
   ``` sh
   npm i
   ```
 
- 3. Mettre en place le fichier de configuration  
+3. Mettre en place le fichier de configuration  
 
   ``` sh
   cp include/resource.json include/resource.priv.json
   ```
 
- 4. Entrez les paramètres dans `resource.priv.json`  
+4. Entrez les paramètres dans `resource.priv.json`  
 
   ``` json
   {
@@ -95,7 +95,7 @@ Générateur de dés en NodeJS pour Discord
   }
   ```
 
- 5. Lancer l'instance du programme  
+5. Lancer l'instance du programme  
 
   ``` sh
   node dicecord.js --test
@@ -115,11 +115,11 @@ Générateur de dés en NodeJS pour Discord
 
  Les contributions sont ce qui fait de la communauté open source un endroit aussi incroyable pour apprendre, inspirer et créer. Toutes les contributions que vous faites sont **grandement appréciées**.
 
- 1. Forker le projet  
- 2. Créez votre branche de fonctionnalités (`git checkout -b feature/AmazingFeature`)  
- 3. Commiter les modifications (`git commit -m 'Add some AmazingFeature`)  
- 4. Pusher vers la branche (`git push origin feature/AmazingFeature`)  
- 5. Ouvrir une Pull Request  
+1. Forker le projet  
+2. Créez votre branche de fonctionnalités (`git checkout -b feature/AmazingFeature`)  
+3. Commiter les modifications (`git commit -m 'Add some AmazingFeature`)  
+4. Pusher vers la branche (`git push origin feature/AmazingFeature`)  
+5. Ouvrir une Pull Request  
 
 ----
 <!-- LICENSE -->
