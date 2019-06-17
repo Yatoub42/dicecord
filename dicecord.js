@@ -64,10 +64,10 @@ if (instance.niven) {
     Client.on("error", (e) => console.error(e));
 } else if (instance.nyria) {
     Client.login(Include.token2);
-    Client.on("error", (e) => console.error(e));    
+    Client.on("error", (e) => console.error(e));
 } else if (instance.test) {
     Client.login(Include.tokenTest);
-    Client.on("error", (e) => console.error(e)); 
+    Client.on("error", (e) => console.error(e));
 }
 //Client.on("warn", (e) => console.warn(e));
 //Client.on("debug", (e) => console.info(e));
