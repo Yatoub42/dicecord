@@ -1,8 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/Yatoub42/dicecord/tree/HEAD)
-
-[Full Changelog](https://github.com/Yatoub42/dicecord/compare/3.5.0...HEAD)
+## [v3.6.0](https://github.com/Yatoub42/dicecord/tree/v3.6.0) (2019-06-18)
+[Full Changelog](https://github.com/Yatoub42/dicecord/compare/3.5.0...v3.6.0)
 
 **Implemented enhancements:**
 
@@ -16,6 +15,7 @@
 
 **Merged pull requests:**
 
+- version 3.6.0 [\#32](https://github.com/Yatoub42/dicecord/pull/32) ([Yatoub42](https://github.com/Yatoub42))
 - xdy+z [\#31](https://github.com/Yatoub42/dicecord/pull/31) ([Yatoub42](https://github.com/Yatoub42))
 
 ## [3.5.0](https://github.com/Yatoub42/dicecord/tree/3.5.0) (2019-06-11)

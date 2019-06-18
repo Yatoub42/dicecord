@@ -20,21 +20,22 @@
 ![GitHub Logo](include/logo.png)  
 Générateur de dés en NodeJS pour Discord  
 [Voir les sources »](https://github.com/Yatoub42/dicecord)  
+[Changelog »](https://github.com/Yatoub42/dicecord/blob/master/CHANGELOG.md)  
 [Un bug ? Une nouvelle fonctionnalité ?](https://github.com/Yatoub42/dicecord/issues)
 
 <!-- TABLE OF CONTENTS -->
 ## Table des matières
 
-- [Table des matières](#table-des-mati%C3%A8res)
-- [A Propos](#a-propos)
-  - [Créé avec](#cr%C3%A9%C3%A9-avec)
-- [Getting Started](#getting-started)
-  - [Prérequis](#pr%C3%A9requis)
-  - [Installation](#installation)
-- [Utilisation](#utilisation)
-- [Contributions](#contributions)
-- [License](#license)
-- [Contact](#contact)
+- [Table des matières](#Table-des-mati%C3%A8res)
+- [A Propos](#A-Propos)
+  - [Créé avec](#Cr%C3%A9%C3%A9-avec)
+- [Getting Started](#Getting-Started)
+  - [Prérequis](#Pr%C3%A9requis)
+  - [Installation](#Installation)
+- [Utilisation](#Utilisation)
+- [Contributions](#Contributions)
+- [License](#License)
+- [Contact](#Contact)
 
 ----
 
