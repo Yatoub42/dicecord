@@ -9,7 +9,7 @@
     }
   ],
   "dependencies": {
-    "@sentry/node": "^5.4.0",
+    "@sentry/node": "^5.5.0",
     "better-sqlite3": "^5.2.1",
     "chance": "1.0.18",
     "commander": "^2.19.0",
