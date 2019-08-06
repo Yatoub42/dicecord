@@ -1,6 +1,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/Yatoub42/dicecord.svg?style=flat-square)
 ![GitHub contributors](https://img.shields.io/github/contributors/Yatoub42/dicecord.svg?style=flat-square)
-![GitHub package.json version](https://img.shields.io/github/package-json/v/Yatoub42/dicecord.svg?style=flat-square)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/Yatoub42/dicecord/master?style=flat-square)
+![Github package.json devel version](https://img.shields.io/github/package-json/v/Yatoub42/dicecord/devel?style=flat-square)
 ![GitHub](https://img.shields.io/github/license/Yatoub42/dicecord.svg?style=flat-square)
 ![GitHub top language](https://img.shields.io/github/languages/top/Yatoub42/dicecord.svg?style=flat-square)
 
@@ -10,6 +11,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Yatoub42_dicecord&metric=alert_status)](https://sonarcloud.io/dashboard?id=Yatoub42_dicecord)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a618051850ac45279a004c69b0e3e400)](https://www.codacy.com/app/Yatoub42/dicecord?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Yatoub42/dicecord&amp;utm_campaign=Badge_Grade)  
 
+Dépendances :  
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Yatoub42/dicecord/discord.js.svg?style=flat-square)
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Yatoub42/dicecord/better-sqlite3.svg?style=flat-square)
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Yatoub42/dicecord/commander.svg?style=flat-square)
