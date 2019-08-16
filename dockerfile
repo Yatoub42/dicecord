@@ -9,12 +9,13 @@ COPY package.json /usr/src/dicecord/
 RUN npm install
 
 # Create db directory
- RUN mkdir -p /usr/src/dicecord/db
+#RUN mkdir -p /usr/src/dicecord/db
  
 # Bundle app source
 COPY . /usr/src/dicecord
 
 # Host shared volume
-VOLUME /root/dicecord/db /usr/src/dicecord/db
+#VOLUME /root/dicecord/db /usr/src/dicecord/db
+VOLUME /usr/src/dicecord/db:/root/dicecord/db
  
-CMD [ "node", "start", "--test" ]
+CMD [ "node", "dicecord.js", "--test" ]
