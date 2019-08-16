@@ -2,19 +2,19 @@ version: '3'
 
 services:
   Dev:
-    image: node:lts
+    image: dicecord
     build: .
     volumes:
       - /root/dicecord/db:/usr/src/dicecord/db
     command: node dicecord.js --test
   Niven:
-    image: node:lts
+    image: dicecord
     build: .
     volumes:
       - /root/dicecord/db:/usr/src/dicecord/db
     command: node dicecord.js --niven
   Nyria:
-    image: node:lts
+    image: dicecord
     build: .
     volumes:
       - /root/dicecord/db:/usr/src/dicecord/db
