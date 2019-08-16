@@ -16,6 +16,6 @@ COPY . /usr/src/dicecord
 
 # Host shared volume
 #VOLUME /root/dicecord/db /usr/src/dicecord/db
-VOLUME /usr/src/dicecord/db:/root/dicecord/db
+#VOLUME /usr/src/dicecord/db:/root/dicecord/db
  
 CMD [ "node", "dicecord.js", "--test" ]
