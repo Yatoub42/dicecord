@@ -1,5 +1,8 @@
 FROM node:lts
  
+ # Set variables
+ENV INSTANCE=test
+
  # Create app directory
 RUN mkdir -p /usr/src/dicecord
 WORKDIR /usr/src/dicecord
@@ -18,4 +21,4 @@ COPY . /usr/src/dicecord
 #VOLUME /root/dicecord/db /usr/src/dicecord/db
 #VOLUME /usr/src/dicecord/db:/root/dicecord/db
  
-CMD [ "node", "dicecord.js" ]
+CMD [ "node", "dicecord.js", $INSTANCE ]
