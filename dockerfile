@@ -21,4 +21,4 @@ COPY . /usr/src/dicecord
 #VOLUME /root/dicecord/db /usr/src/dicecord/db
 #VOLUME /usr/src/dicecord/db:/root/dicecord/db
 
-CMD "/usr/bin/node dicecord.js --$INSTANCE"
+CMD "npm run dicecord -- --$INSTANCE"
