@@ -20,5 +20,7 @@ COPY . /usr/src/dicecord
 # Host shared volume
 #VOLUME /root/dicecord/db /usr/src/dicecord/db
 #VOLUME /usr/src/dicecord/db:/root/dicecord/db
- 
-CMD "/usr/local/bin/node dicecord.js --$INSTANCE"
+
+ENTRYPOINT ["node", "dicecord.js"]
+CMD "--$INSTANCE"
+#CMD "/usr/local/bin/node dicecord.js --$INSTANCE"
