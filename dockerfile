@@ -1,4 +1,4 @@
-FROM node:lts
+FROM node:10-alpine
  
  # Set variables
 ENV INSTANCE=test
