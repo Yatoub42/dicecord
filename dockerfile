@@ -21,6 +21,4 @@ COPY . /usr/src/dicecord
 #VOLUME /root/dicecord/db /usr/src/dicecord/db
 #VOLUME /usr/src/dicecord/db:/root/dicecord/db
 
-ENTRYPOINT ["node", "dicecord.js"]
-CMD "--$INSTANCE"
-#CMD "/usr/local/bin/node dicecord.js --$INSTANCE"
+CMD "/usr/bin/node dicecord.js --$INSTANCE"
