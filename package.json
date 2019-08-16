@@ -22,8 +22,5 @@
       "url": "https://opensource.org/licenses/mit-license.php"
     }
   ],
-  "homepage": "https://github.com/Yatoub42/dicecord",
-  "scripts": {
-    "dicecord": "node dicecord.js"
-  }
+  "homepage": "https://github.com/Yatoub42/dicecord"
 }
