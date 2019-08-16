@@ -1,0 +1,21 @@
+version: '1.0'
+
+services:
+  Dev:
+    image: node:lts
+    build: .
+    volumes:
+      - /root/dicecord/db:/usr/src/dicecord/db
+    command: node dicecord.js --test
+  Niven:
+    image: node:lts
+    build: .
+    volumes:
+      - /root/dicecord/db:/usr/src/dicecord/db
+    command: node dicecord.js --niven
+  Nyria:
+    image: node:lts
+    build: .
+    volumes:
+      - /root/dicecord/db:/usr/src/dicecord/db
+    command: node dicecord.js --nyria

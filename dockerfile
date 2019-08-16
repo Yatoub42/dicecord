@@ -1,4 +1,4 @@
-FROM node:lts-jessie
+FROM node:lts
  
  # Set variables
 ENV INSTANCE=test
