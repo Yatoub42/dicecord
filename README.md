@@ -17,7 +17,6 @@ Dépendances :
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Yatoub42/dicecord/moment.svg?style=flat-square)
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Yatoub42/dicecord/chance.svg?style=flat-square)
 
-<center>
 <!-- PROJECT LOGO -->
 ![GitHub Logo](include/logo.png)  
 Générateur de dés en NodeJS pour Discord  
@@ -39,7 +38,6 @@ Générateur de dés en NodeJS pour Discord
 - [License](#License)
 - [Contact](#Contact)
 
-</center>
 ----
 
 <!-- ABOUT THE PROJECT -->
