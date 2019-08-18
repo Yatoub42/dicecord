@@ -1,7 +1,6 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/Yatoub42/dicecord.svg?style=flat-square)
 ![GitHub contributors](https://img.shields.io/github/contributors/Yatoub42/dicecord.svg?style=flat-square)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/Yatoub42/dicecord/master?style=flat-square)
-![Github package.json devel version](https://img.shields.io/github/package-json/v/Yatoub42/dicecord/devel?style=flat-square)
 ![GitHub](https://img.shields.io/github/license/Yatoub42/dicecord.svg?style=flat-square)
 ![GitHub top language](https://img.shields.io/github/languages/top/Yatoub42/dicecord.svg?style=flat-square)
 
@@ -18,6 +17,7 @@ Dépendances :
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Yatoub42/dicecord/moment.svg?style=flat-square)
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Yatoub42/dicecord/chance.svg?style=flat-square)
 
+<center>
 <!-- PROJECT LOGO -->
 ![GitHub Logo](include/logo.png)  
 Générateur de dés en NodeJS pour Discord  
@@ -39,6 +39,7 @@ Générateur de dés en NodeJS pour Discord
 - [License](#License)
 - [Contact](#Contact)
 
+</center>
 ----
 
 <!-- ABOUT THE PROJECT -->
