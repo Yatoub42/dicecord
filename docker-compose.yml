@@ -6,16 +6,19 @@ services:
     build: .
     volumes:
       - /root/dicecord/db:/usr/src/dicecord/db
+    restart: on-failure:0
     command: node dicecord.js --test
   Niven:
     image: dicecord
     build: .
     volumes:
       - /root/dicecord/db:/usr/src/dicecord/db
+    restart: on-failure:0
     command: node dicecord.js --niven
   Nyria:
     image: dicecord
     build: .
     volumes:
       - /root/dicecord/db:/usr/src/dicecord/db
+    restart: on-failure:0 
     command: node dicecord.js --nyria
