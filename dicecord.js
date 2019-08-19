@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 const instance = require("commander"); 
 const Sentry = require("@sentry/node");
 const Include = require("./include/resource.priv.json");
-const Client = new Discord.Client();
+const Client = new Discord.Client({autoReconnect:true});
 Sentry.init({
     dsn: Include.sentry
 });
