@@ -2,29 +2,29 @@ version: '2'
 
 services:
   Dev:
+    environnement:
+      TZ=Europe/Paris
     image: dicecord
     build: .
     volumes:
       - /root/dicecord/db:/usr/src/dicecord/db
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
     restart: always
     command: node dicecord.js --test
   Niven:
+    environnement:
+      TZ=Europe/Paris
     image: dicecord
     build: .
     volumes:
       - /root/dicecord/db:/usr/src/dicecord/db
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
     restart: always
     command: node dicecord.js --niven
   Nyria:
+    environnement:
+      TZ=Europe/Paris
     image: dicecord
     build: .
     volumes:
       - /root/dicecord/db:/usr/src/dicecord/db
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
     restart: always 
     command: node dicecord.js --nyria

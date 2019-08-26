@@ -1,8 +1,8 @@
 FROM node:lts
 
 # Set timezone
-RUN echo "Europe/Paris" > /etc/timezone
-RUN dpkg-reconfigure -f noninteractive tzdata
+RUN apt-get update ;\
+    apt-get install -y tzdata
 
  # Create app directory
 RUN mkdir -p /usr/src/dicecord
