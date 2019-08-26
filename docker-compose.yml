@@ -7,6 +7,7 @@ services:
     volumes:
       - /root/dicecord/db:/usr/src/dicecord/db
       - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     restart: always
     command: node dicecord.js --test
   Niven:
@@ -15,6 +16,7 @@ services:
     volumes:
       - /root/dicecord/db:/usr/src/dicecord/db
       - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     restart: always
     command: node dicecord.js --niven
   Nyria:
@@ -23,5 +25,6 @@ services:
     volumes:
       - /root/dicecord/db:/usr/src/dicecord/db
       - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     restart: always 
     command: node dicecord.js --nyria

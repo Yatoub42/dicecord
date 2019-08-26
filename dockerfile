@@ -1,7 +1,8 @@
 FROM node:lts
- 
- # Set variables
-ENV INSTANCE=test
+
+# Set timezone
+RUN echo "Europe/Paris" > /etc/timezone
+RUN dpkg-reconfigure -f noninteractive tzdata
 
  # Create app directory
 RUN mkdir -p /usr/src/dicecord
