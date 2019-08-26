@@ -15,4 +15,4 @@ RUN npm install
 # Bundle app source
 COPY . /usr/src/dicecord
 
-CMD "node dicecord.js --test"
+CMD "node dicecord.js --$INSTANCE"
