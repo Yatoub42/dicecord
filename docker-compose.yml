@@ -2,8 +2,6 @@ version: '2'
 
 services:
   Dev:
-    environnement:
-      TZ=Europe/Paris
     image: dicecord
     build: .
     volumes:
@@ -11,8 +9,6 @@ services:
     restart: always
     command: node dicecord.js --test
   Niven:
-    environnement:
-      TZ=Europe/Paris
     image: dicecord
     build: .
     volumes:
@@ -20,8 +16,6 @@ services:
     restart: always
     command: node dicecord.js --niven
   Nyria:
-    environnement:
-      TZ=Europe/Paris
     image: dicecord
     build: .
     volumes:
