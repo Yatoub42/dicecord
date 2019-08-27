@@ -1,5 +1,8 @@
 FROM node:lts
 
+# Set variables
+ENV INSTANCE=test
+
 # Set timezone
 RUN apt-get update ;\
     apt-get install -y tzdata
