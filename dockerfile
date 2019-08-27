@@ -4,8 +4,15 @@ FROM node:lts
 ENV INSTANCE=test
 
 # Set timezone
-RUN apt-get update ;\
-    apt-get install -y tzdata
+RUN export DEBIAN_FRONTEND=noninteractive; \
+    export DEBCONF_NONINTERACTIVE_SEEN=true; \
+    echo 'tzdata tzdata/Areas select Europe' | debconf-set-selections; \
+    echo 'tzdata tzdata/Zones/Etc select Paris' | debconf-set-selections; \
+    apt-get update -qqy \
+ && apt-get install -qqy --no-install-recommends \
+        tzdata \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
 
  # Create app directory
 RUN mkdir -p /usr/src/dicecord
