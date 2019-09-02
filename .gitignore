@@ -178,6 +178,10 @@ fabric.properties
 # Private file
 *priv*
 
+# Webstorm
+.idea/*
+.idea
+
 # SQLite
 db/*
 *.db
