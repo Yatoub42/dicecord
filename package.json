@@ -12,7 +12,7 @@
     "@sentry/node": "^5.6.2",
     "better-sqlite3": "^5.4.2",
     "chance": "1.1.0",
-    "commander": "^2.19.0",
+    "commander": "^3.0.1",
     "discord.js": "^11.4.2",
     "moment": "^2.24.0"
   },
