@@ -10,7 +10,7 @@
   ],
   "dependencies": {
     "@sentry/node": "^5.6.2",
-    "better-sqlite3": "^5.4.2",
+    "better-sqlite3": "^5.4.3",
     "chance": "1.1.0",
     "commander": "^3.0.1",
     "discord.js": "^11.4.2",
