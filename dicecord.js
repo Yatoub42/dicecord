@@ -2,12 +2,8 @@ const db = require("./lib/bdd.js");
 const message = require("./lib/message.js");
 const Discord = require("discord.js");
 const instance = require("commander"); 
-const Sentry = require("@sentry/node");
 const Include = require("./include/resource.priv.json");
 const Client = new Discord.Client({autoReconnect:true});
-Sentry.init({
-    dsn: Include.sentry
-});
 
 const reSpec = /\W|_/g;
 const prefix = Include.prefix;
