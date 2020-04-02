@@ -43,7 +43,7 @@ Générateur de dés en NodeJS pour Discord
 <!-- ABOUT THE PROJECT -->
 ## A Propos
 
- Il existe de nombreux excellents générateurs de dés disponibles sur GitHub. Cependant, nous n'en avons trouvé aucun qui corresponde vraiment à nos besoins et en avons donc créé un de toute pièce. Nous avons essayé de créer un bot de génération de dés tellement incroyable que ce sera le dernier dont vous aurez besoin.
+ Générateur de dés pour jeu de rôle avec statistiques de lancés.
 
 ----
 
@@ -117,7 +117,7 @@ Générateur de dés en NodeJS pour Discord
 <!-- CONTRIBUTING -->
 ## Contributions
 
- Les contributions sont ce qui fait de la communauté open source un endroit aussi incroyable pour apprendre, inspirer et créer. Toutes les contributions que vous faites sont **grandement appréciées**.
+ Toutes les contributions que vous faites sont **grandement appréciées**.
 
 1. Forker le projet  
 2. Créez votre branche de fonctionnalités (`git checkout -b feature/AmazingFeature`)  
