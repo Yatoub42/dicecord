@@ -35,6 +35,7 @@ Client.on("message", (msg) => {
 instance
   .option("--nyria", "Nyria")
   .option("--niven", "Niven")
+  .option("--chernobyl", "Chernobyl")
   .option("--test", "Test")
   .parse(process.argv);
 
@@ -46,5 +47,8 @@ if (instance.niven) {
     Client.on("error", (e) => console.error(e));
 } else if (instance.test) {
     Client.login(Include.tokenTest);
+    Client.on("error", (e) => console.error(e));
+} else if (instance.chernobyl) {
+    Client.login(Include.token4);
     Client.on("error", (e) => console.error(e));
 }
