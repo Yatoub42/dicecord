@@ -36,6 +36,7 @@ instance
   .option("--nyria", "Nyria")
   .option("--niven", "Niven")
   .option("--chernobyl", "Chernobyl")
+  .option("--tanai", "Tanai")
   .option("--test", "Test")
   .parse(process.argv);
 
@@ -50,5 +51,8 @@ if (instance.niven) {
     Client.on("error", (e) => console.error(e));
 } else if (instance.chernobyl) {
     Client.login(Include.token4);
+    Client.on("error", (e) => console.error(e));
+} else if (instance.tanai) {
+    Client.login(Include.token5);
     Client.on("error", (e) => console.error(e));
 }
