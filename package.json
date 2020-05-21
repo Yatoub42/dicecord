@@ -13,7 +13,7 @@
     "chance": "1.1.4",
     "commander": "^5.1.0",
     "discord.js": "^12.2.0",
-    "moment": "^2.25.1"
+    "moment": "^2.26.0"
   },
   "licenses": [
     {
