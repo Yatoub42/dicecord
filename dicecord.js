@@ -66,6 +66,7 @@ switch (instance) {
         Client.on("error", (e) => console.error(e));
     case instance.test:
         Client.login(Include.tokenTest);
+        console.log(Client.fetchApplication());
         Client.on("error", (e) => console.error(e));
     case instance.chernobyl:
         Client.login(Include.token4);
@@ -76,5 +77,6 @@ switch (instance) {
       break;
     default:
       console.log("ERROR TOKEN");
+      Client.destroy();
   }
   
