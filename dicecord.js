@@ -3,7 +3,8 @@ const message = require("./lib/message.js");
 const Discord = require("discord.js");
 const instance = require("commander"); 
 const Include = require("./include/resource.priv.json");
-const client = new Discord.client(/*{autoReconnect:true}*/);
+//const client = new Discord.client(/*{autoReconnect:true}*/);
+const client = new Discord.Client();
 
 const reSpec = /\W|_/g;
 const prefix = Include.prefix;
