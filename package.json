@@ -22,9 +22,4 @@
     }
   ],
   "homepage": "https://github.com/Yatoub42/dicecord",
-  "scripts": {
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
-  },
-  "snyk": true
 }
