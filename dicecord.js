@@ -1,3 +1,4 @@
+'use strict';
 const db = require("./lib/bdd.js");
 const message = require("./lib/message.js");
 const Discord = require("discord.js");
