@@ -5,7 +5,6 @@ const yargs = require('yargs');
 const { hideBin } = require('yargs/helpers')
 const argv = yargs(hideBin(process.argv)).argv
 const Include = require("./include/resource.priv.json");
-//const client = new Discord.client({autoReconnect:true});
 const client = new Discord.Client();
 
 const reSpec = /\W|_/g;
@@ -36,23 +35,6 @@ client.on('message', msg => {
         }
     }
 });
-/*if (instance.niven) {
-    client.login(Include.token1);
-    //client.on("error", (e) => console.error(e));
-} else if (instance.nyria) {
-    client.login(Include.token2);
-    //client.on("error", (e) => console.error(e));
-} else if (instance.test) {
-    client.login(Include.tokenTest);
-    //client.on("error", (e) => console.error(e));
-} else if (instance.chernobyl) {
-    client.login(Include.token4);
-    //client.on("error", (e) => console.error(e));
-} else if (instance.tanai) {
-    client.login(Include.token5);
-    //client.on("error", (e) => console.error(e));
-}*/
-
 if (argv.niven) {
     client.login(Include.token1);
     client.on("error", (e) => console.error(e));
@@ -69,7 +51,7 @@ if (argv.niven) {
     client.login(Include.token5);
     client.on("error", (e) => console.error(e));
 } else {
-    console.log("/!\\ TOKEN NOT FOUND /!\\");
+    console.error("/!\\ TOKEN NOT FOUND /!\\");
     client.on("error", (e) => console.error(e));
     client.destroy();
 }
