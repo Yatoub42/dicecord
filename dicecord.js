@@ -67,7 +67,7 @@ switch (instance) {
         Client.login(jsonParsed.token2);
         Client.on("error", (e) => console.error(e));
     case instance.test:
-        Client.login(jsonParsed.tokenTest);
+        Client.login("NTE0MDAzOTUwODY2MDA2MDI2.W_J9ew.rjvy-eH53J4l2po-7GNiply4nh8");
         console.log(Client.fetchApplication());
         Client.on("error", (e) => console.error(e));
     case instance.chernobyl:
