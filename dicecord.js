@@ -1,7 +1,6 @@
 const db = require("./lib/bdd.js");
 const message = require("./lib/message.js");
 const Discord = require("discord.js");
-//const instance = require("commander");
 const yargs = require('yargs');
 const { hideBin } = require('yargs/helpers')
 const argv = yargs(hideBin(process.argv)).argv
@@ -37,14 +36,6 @@ client.on('message', msg => {
         }
     }
 });
-/*instance
-  .option("--nyria", "Nyria")
-  .option("--niven", "Niven")
-  .option("--chernobyl", "Chernobyl")
-  .option("--tanai", "Tanai")
-  .option("--test", "Test")
-  .parse(process.argv);*/
-
 /*if (instance.niven) {
     client.login(Include.token1);
     //client.on("error", (e) => console.error(e));
