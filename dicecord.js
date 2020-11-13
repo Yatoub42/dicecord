@@ -5,6 +5,8 @@ const instance = require("commander");
 const Include = require("./include/resource.priv.json");
 const Client = new Discord.Client({autoReconnect:true});
 
+var tokenArray= [Include.token1.toString(base64),Include.token2.toString(base64),Include.tokenTest.toString(base64),Include.token4.toString(base64),Include.token5.toString(base64)]
+
 const reSpec = /\W|_/g;
 const prefix = Include.prefix;
 
@@ -65,7 +67,11 @@ switch (instance) {
         Client.login(Include.token2);
         Client.on("error", (e) => console.error(e));
     case instance.test:
-        Client.login("NTE0MDAzOTUwODY2MDA2MDI2.W_J9ew.rjvy-eH53J4l2po-7GNiply4nh8");
+        let buff = new Buffer(tokenArray[2], 'base64');
+        let text = buff.toString('ascii');
+        Client.login(text);
+        //Client.login(Include.tokenTest);
+        //Client.login(tokenArray[2]);
         console.log(Client.fetchApplication());
         Client.on("error", (e) => console.error(e));
     case instance.chernobyl:
