@@ -40,7 +40,7 @@ instance
   .option("--test", "Test")
   .parse(process.argv);
 
-if (instance.niven) {
+/*if (instance.niven) {
     Client.login(Include.token1);
     Client.on("error", (e) => console.error(e));
 } else if (instance.nyria) {
@@ -55,4 +55,27 @@ if (instance.niven) {
 } else if (instance.tanai) {
     Client.login(Include.token5);
     Client.on("error", (e) => console.error(e));
-}
+}*/
+
+switch (instance) {
+    case instance.niven:
+        Client.login(Include.token1);
+        Client.on("error", (e) => console.error(e));
+      break;
+    case instance.nyria:
+        Client.login(Include.token2);
+        Client.on("error", (e) => console.error(e));
+    case instance.test:
+        Client.login(Include.tokenTest);
+        Client.on("error", (e) => console.error(e));
+    case instance.chernobyl:
+        Client.login(Include.token4);
+        Client.on("error", (e) => console.error(e));
+    case instance.tanai:
+        Client.login(Include.token5);
+        Client.on("error", (e) => console.error(e));
+      break;
+    default:
+      console.log("ERROR TOKEN");
+  }
+  
