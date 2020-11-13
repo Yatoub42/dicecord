@@ -56,26 +56,26 @@ client.on('message', msg => {
 /*console.log(Include.tokenTest);
 client.login(Include.tokenTest);*/
 
-console.log(argv);
+console.log(argv.instance);
 
-switch (argv) {
-    case "-niven":
+switch (argv.instance) {
+    case "niven":
         console.log(Include.token1);
         client.login(Include.token1);
         client.on("error", (e) => console.error(e));
-    case "-nyria":
+    case "nyria":
         console.log(Include.token2);
         client.login(Include.token2);
         client.on("error", (e) => console.error(e));
-    case "-test":
+    case "test":
         console.log(Include.tokenTest);
         client.login(Include.tokenTest);
         client.on("error", (e) => console.error(e));
-    case "-chernobyl":
+    case "chernobyl":
         console.log(Include.token4);
         client.login(Include.token4);
         client.on("error", (e) => console.error(e));
-    case "-tanai":
+    case "tanai":
         console.log(Include.token5);
         client.login(Include.token5);
         client.on("error", (e) => console.error(e));
