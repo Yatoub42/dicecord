@@ -1,7 +1,9 @@
 const db = require("./lib/bdd.js");
 const message = require("./lib/message.js");
 const Discord = require("discord.js");
-const instance = require("commander"); 
+//const instance = require("commander");
+const yargs = require('yargs');
+const argv = yargs(hideBin(process.argv)).argv
 const Include = require("./include/resource.priv.json");
 //const client = new Discord.client({autoReconnect:true});
 const client = new Discord.Client();
@@ -35,13 +37,27 @@ client.on('message', msg => {
     }
 });
 
-instance
+const instance = argv;
+switch (expr) {
+  case argv:
+    console.log('Oranges are $0.59 a pound.');
+    break;
+  case 'Mangoes':
+  case 'Papayas':
+    console.log('Mangoes and papayas are $2.79 a pound.');
+    // expected output: "Mangoes and papayas are $2.79 a pound."
+    break;
+  default:
+    console.log(`Sorry, we are out of ${expr}.`);
+}
+
+/*instance
   .option("--nyria", "Nyria")
   .option("--niven", "Niven")
   .option("--chernobyl", "Chernobyl")
   .option("--tanai", "Tanai")
   .option("--test", "Test")
-  .parse(process.argv);
+  .parse(process.argv);*/
 
 /*if (instance.niven) {
     client.login(Include.token1);
@@ -60,21 +76,21 @@ instance
     //client.on("error", (e) => console.error(e));
 }*/
 
-switch (instance) {
-    case instance.niven:
+switch (argv) {
+    case "--niven":
         client.login(Include.token1);
         //client.on("error", (e) => console.error(e));
-    case instance.nyria:
+    case "--nyria":
         client.login(Include.token2);
         //client.on("error", (e) => console.error(e));
-    case instance.test:
+    case "--test":
         client.login(Include.tokenTest);
         console.log(client.fetchApplication());
         //client.on("error", (e) => console.error(e));
-    case instance.chernobyl:
+    case "--chernobyl":
         client.login(Include.token4);
         //client.on("error", (e) => console.error(e));
-    case instance.tanai:
+    case "--tanai":
         client.login(Include.token5);
         //client.on("error", (e) => console.error(e));
       break;
