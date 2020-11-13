@@ -5,8 +5,6 @@ const instance = require("commander");
 const Include = require("./include/resource.priv.json");
 const Client = new Discord.Client({autoReconnect:true});
 
-const jsonParsed = JSON.parse(Include);
-
 const reSpec = /\W|_/g;
 const prefix = Include.prefix;
 
@@ -61,20 +59,20 @@ instance
 
 switch (instance) {
     case instance.niven:
-        Client.login(jsonParsed.token1);
+        Client.login(Include.token1);
         Client.on("error", (e) => console.error(e));
     case instance.nyria:
-        Client.login(jsonParsed.token2);
+        Client.login(Include.token2);
         Client.on("error", (e) => console.error(e));
     case instance.test:
         Client.login("NTE0MDAzOTUwODY2MDA2MDI2.W_J9ew.rjvy-eH53J4l2po-7GNiply4nh8");
         console.log(Client.fetchApplication());
         Client.on("error", (e) => console.error(e));
     case instance.chernobyl:
-        Client.login(jsonParsed.token4);
+        Client.login(Include.token4);
         Client.on("error", (e) => console.error(e));
     case instance.tanai:
-        Client.login(jsonParsed.token5);
+        Client.login(Include.token5);
         Client.on("error", (e) => console.error(e));
       break;
     default:
