@@ -53,7 +53,28 @@ client.on('message', msg => {
     //client.on("error", (e) => console.error(e));
 }*/
 
-switch (argv) {
+if (argv.niven) {
+    client.login(Include.token1);
+    client.on("error", (e) => console.error(e));
+} else if (argv.nyria){
+    client.login(Include.token2);
+    client.on("error", (e) => console.error(e));
+} else if (argv.test){
+    client.login(Include.tokenTest);
+    client.on("error", (e) => console.error(e))
+} else if (argv.chernobyl){
+    client.login(Include.token4);
+    client.on("error", (e) => console.error(e));
+} else if (argv.tanai){
+    client.login(Include.token5);
+    client.on("error", (e) => console.error(e));
+} else {
+    console.log("/!\\ TOKEN NOT FOUND /!\\");
+    client.on("error", (e) => console.error(e));
+    client.destroy();
+}
+
+/*switch () {
     case argv.niven:
         console.log(Include.token1);
         client.login(Include.token1);
@@ -79,4 +100,4 @@ switch (argv) {
       console.log("/!\\ TOKEN NOT FOUND /!\\");
       client.on("error", (e) => console.error(e));
       client.destroy();
-  }
+  }*/
