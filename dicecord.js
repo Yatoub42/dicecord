@@ -1,12 +1,9 @@
-'use strict';
 const db = require("./lib/bdd.js");
 const message = require("./lib/message.js");
 const Discord = require("discord.js");
 const instance = require("commander"); 
 const Include = require("./include/resource.priv.json");
 const Client = new Discord.Client({autoReconnect:true});
-
-var tokenArray= [Include.token1.toString(base64),Include.token2.toString(base64),Include.tokenTest.toString(base64),Include.token4.toString(base64),Include.token5.toString(base64)]
 
 const reSpec = /\W|_/g;
 const prefix = Include.prefix;
@@ -68,11 +65,7 @@ switch (instance) {
         Client.login(Include.token2);
         Client.on("error", (e) => console.error(e));
     case instance.test:
-        let buff = new Buffer(tokenArray[2], 'base64');
-        let text = buff.toString('ascii');
-        Client.login(text);
-        //Client.login(Include.tokenTest);
-        //Client.login(tokenArray[2]);
+        Client.login(Include.tokenTest);
         console.log(Client.fetchApplication());
         Client.on("error", (e) => console.error(e));
     case instance.chernobyl:
