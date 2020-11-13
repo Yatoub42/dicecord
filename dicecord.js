@@ -53,39 +53,41 @@ client.on('message', msg => {
     //client.on("error", (e) => console.error(e));
 }*/
 
-console.log(Include.tokenTest);
-client.login(Include.tokenTest).catch(console.error);
+/*console.log(Include.tokenTest);
+client.login(Include.tokenTest);*/
 
-//switch (argv) {
-//    case "--niven":
-//        console.log(Include.token1);
-//        client.login(Include.token1).catch(console.error);
-//        //client.on("error", (e) => console.error(e));
-//    case "--nyria":
-//        console.log(Include.token2);
-//        client.login(Include.token2).catch(console.error);
-//        //client.on("error", (e) => console.error(e));
-//    case "--test":
-//        console.log(Include.tokenTest);
-//        client.login(Include.tokenTest).catch(console.error);
-//        //client.on("error", (e) => console.error(e));
-//    case "--chernobyl":
-//        console.log(Include.token4);
-//        client.login(Include.token4).catch(console.error);
-//        //client.on("error", (e) => console.error(e));
-//    case "--tanai":
-//        console.log(Include.token5);
-//        client.login(Include.token5).catch(console.error);
-//        //client.on("error", (e) => console.error(e));
-//      break;
-//    default:
-//      console.log("/!\\ TOKEN NOT FOUND /!\\");
-//      //client.on("error", (e) => console.error(e));
-//      /*console.log("Token list :\n"
-//      +"Include.token1="+Include.token1+"\n"
-//      +"Include.token2="+Include.token2+"\n"
-//      +"Include.tokenTest="+Include.tokenTest+"\n"
-//      +"Include.token4="+Include.token4+"\n"
-//      +"Include.token5="+Include.token5);*/
-//      client.destroy();
-//  }
+console.log(argv);
+
+switch (argv) {
+    case "--niven":
+        console.log(Include.token1);
+        client.login(Include.token1);
+        client.on("error", (e) => console.error(e));
+    case "--nyria":
+        console.log(Include.token2);
+        client.login(Include.token2);
+        client.on("error", (e) => console.error(e));
+    case "--test":
+        console.log(Include.tokenTest);
+        client.login(Include.tokenTest);
+        client.on("error", (e) => console.error(e));
+    case "--chernobyl":
+        console.log(Include.token4);
+        client.login(Include.token4);
+        client.on("error", (e) => console.error(e));
+    case "--tanai":
+        console.log(Include.token5);
+        client.login(Include.token5);
+        client.on("error", (e) => console.error(e));
+      break;
+    default:
+      console.log("/!\\ TOKEN NOT FOUND /!\\");
+      client.on("error", (e) => console.error(e));
+      /*console.log("Token list :\n"
+      +"Include.token1="+Include.token1+"\n"
+      +"Include.token2="+Include.token2+"\n"
+      +"Include.tokenTest="+Include.tokenTest+"\n"
+      +"Include.token4="+Include.token4+"\n"
+      +"Include.token5="+Include.token5);*/
+      client.destroy();
+  }
