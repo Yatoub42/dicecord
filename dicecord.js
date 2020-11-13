@@ -53,29 +53,24 @@ client.on('message', msg => {
     //client.on("error", (e) => console.error(e));
 }*/
 
-/*console.log(Include.tokenTest);
-client.login(Include.tokenTest);*/
-
-console.log(argv.instance);
-
-switch (argv.instance) {
-    case "niven":
+switch (argv) {
+    case argv.niven:
         console.log(Include.token1);
         client.login(Include.token1);
         client.on("error", (e) => console.error(e));
-    case "nyria":
+    case argv.nyria:
         console.log(Include.token2);
         client.login(Include.token2);
         client.on("error", (e) => console.error(e));
-    case "test":
+    case argv.test:
         console.log(Include.tokenTest);
         client.login(Include.tokenTest);
         client.on("error", (e) => console.error(e));
-    case "chernobyl":
+    case argv.chernobyl:
         console.log(Include.token4);
         client.login(Include.token4);
         client.on("error", (e) => console.error(e));
-    case "tanai":
+    case argv.tanai:
         console.log(Include.token5);
         client.login(Include.token5);
         client.on("error", (e) => console.error(e));
@@ -83,11 +78,5 @@ switch (argv.instance) {
     default:
       console.log("/!\\ TOKEN NOT FOUND /!\\");
       client.on("error", (e) => console.error(e));
-      /*console.log("Token list :\n"
-      +"Include.token1="+Include.token1+"\n"
-      +"Include.token2="+Include.token2+"\n"
-      +"Include.tokenTest="+Include.tokenTest+"\n"
-      +"Include.token4="+Include.token4+"\n"
-      +"Include.token5="+Include.token5);*/
       client.destroy();
   }
