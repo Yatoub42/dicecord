@@ -76,7 +76,7 @@ switch (instance) {
         Client.on("error", (e) => console.error(e));
       break;
     default:
-      console.log("/!\ TOKEN NOT FOUND /!\");
+      console.log("/!\\ TOKEN NOT FOUND /!\\");
       Client.destroy();
   }
   
