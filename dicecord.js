@@ -61,7 +61,6 @@ switch (instance) {
     case instance.niven:
         Client.login(Include.token1);
         Client.on("error", (e) => console.error(e));
-      break;
     case instance.nyria:
         Client.login(Include.token2);
         Client.on("error", (e) => console.error(e));
