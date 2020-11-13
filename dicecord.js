@@ -55,20 +55,19 @@ client.on('message', msg => {
 
 switch (argv) {
     case "--niven":
-        client.login(Include.token1);
+        client.login(Include.token1).catch(console.error);
         //client.on("error", (e) => console.error(e));
     case "--nyria":
-        client.login(Include.token2);
+        client.login(Include.token2).catch(console.error);
         //client.on("error", (e) => console.error(e));
     case "--test":
-        client.login(Include.tokenTest);
-        console.log(client.fetchApplication());
+        client.login(Include.tokenTest).catch(console.error);
         //client.on("error", (e) => console.error(e));
     case "--chernobyl":
-        client.login(Include.token4);
+        client.login(Include.token4).catch(console.error);
         //client.on("error", (e) => console.error(e));
     case "--tanai":
-        client.login(Include.token5);
+        client.login(Include.token5).catch(console.error);
         //client.on("error", (e) => console.error(e));
       break;
     default:
