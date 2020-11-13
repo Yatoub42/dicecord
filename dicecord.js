@@ -3,6 +3,7 @@ const message = require("./lib/message.js");
 const Discord = require("discord.js");
 //const instance = require("commander");
 const yargs = require('yargs');
+const { hideBin } = require('yargs/helpers')
 const argv = yargs(hideBin(process.argv)).argv
 const Include = require("./include/resource.priv.json");
 //const client = new Discord.client({autoReconnect:true});
