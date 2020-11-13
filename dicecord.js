@@ -77,7 +77,13 @@ switch (instance) {
       break;
     default:
       console.log("/!\\ TOKEN NOT FOUND /!\\");
-      console.log("Token list :"+Include.token1+" ;"+Include.token2+" ;"+Include.tokenTest+" ;"+Include.token4+" ;"+Include.token5+" END");
+      console.log("Token list :"
+      +"Include.token1="+Include.token1+
+      +"Include.token2="+Include.token2+
+      +"Include.tokenTest="+Include.tokenTest
+      +"Include.token4="+Include.token4
+      +"Include.token5="+Include.token5
+      +"END");
       Client.destroy();
   }
   
